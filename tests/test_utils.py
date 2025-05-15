@@ -13,7 +13,7 @@ with patch("logging.getLogger", side_effect=logging.getLogger):
 def test_constants():
     # Check main directory
     assert __file__.startswith(str(utils.MAIN_DIRECTORY))
-    assert re.search(r"server(-\d+)?[/\\]?$", str(utils.MAIN_DIRECTORY))
+    assert re.search(r"server-2025-public(-\d+)?[/\\]?$", str(utils.MAIN_DIRECTORY))
     assert os.path.exists(utils.MAIN_DIRECTORY)
 
 
