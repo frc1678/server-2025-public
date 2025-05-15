@@ -1,0 +1,118 @@
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# TODO: Add collection information to data fields once schema is implemented
+# Non-calculated data
+data:
+  match_number:
+    type: int
+  alliance_color:
+    type: str
+  team_numbers:
+    type: list
+
+--diffs:
+  total_point_diff:
+    type: float
+    tim_weights:
+      leave: 3
+      auto_coral_L1: 3
+      auto_coral_L2: 4
+      auto_coral_L3: 6
+      auto_coral_L4: 7
+      tele_coral_L1: 2
+      tele_coral_L2: 3
+      tele_coral_L3: 4
+      tele_coral_L4: 5
+      auto_net: 4
+      tele_net: 4
+      tele_processor: 6
+      auto_processor: 6
+      deep: 12
+      shallow: 6
+      park: 2
+    tba_weights:
+      total_points_no_hp_foul: 1
+  total_piece_diff:
+    type: float
+    tim_weights:
+      auto_coral_L1: 1
+      auto_coral_L2: 1
+      auto_coral_L3: 1
+      auto_coral_L4: 1
+      tele_coral_L1: 1
+      tele_coral_L2: 1
+      tele_coral_L3: 1
+      tele_coral_L4: 1
+      auto_net: 1
+      tele_net: 1
+      tele_processor: 1
+      auto_processor: 1
+    tba_weights:
+      auto_L1_count: 1
+      auto_L2_count: 1
+      auto_L3_count: 1
+      auto_L4_count: 1
+      tele_L1_count: 1
+      tele_L2_count: 1
+      tele_L3_count: 1
+      tele_L4_count: 1
+      wallAlgaeCount: 1
+      net_algae_count_no_hp: 1
+  total_coral_diff:
+    type: float
+    tim_weights:
+      auto_coral_L1: 1
+      auto_coral_L2: 1
+      auto_coral_L3: 1
+      auto_coral_L4: 1
+      tele_coral_L1: 1
+      tele_coral_L2: 1
+      tele_coral_L3: 1
+      tele_coral_L4: 1
+    tba_weights:
+      autoCoralCount: 1
+      teleopCoralCount: 1
+  total_net_diff:
+    type: float
+    tim_weights:
+      auto_net: 1
+      tele_net: 1
+    tba_weights:
+      net_algae_count_no_hp: 1
+  total_processor_diff:
+    type: float
+    tim_weights:
+      tele_processor: 1
+      auto_processor: 1
+    tba_weights:
+      wallAlgaeCount: 1
+  auto_coral_diff:
+    type: float
+    tim_weights:
+      auto_coral_L1: 1
+      auto_coral_L2: 1
+      auto_coral_L3: 1
+      auto_coral_L4: 1
+    tba_weights:
+      autoCoralCount: 1
+  tele_coral_diff:
+    type: float
+    tim_weights:
+      tele_coral_L1: 1
+      tele_coral_L2: 1
+      tele_coral_L3: 1
+      tele_coral_L4: 1
+    tba_weights:
+      teleopCoralCount: 1
+  endgame_point_diff:
+    type: float
+    tim_weights:
+      deep: 12
+      shallow: 6
+      parked: 2
+    tba_weights:
+      endGameBargePoints: 1

@@ -1,0 +1,34 @@
+# Used for calculating objective team in match data based on TBA data
+#
+# Example:
+#
+# {
+#     "match_number": 8,
+#     "team_number": "1580",
+#     "leave": false
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+data:
+  match_number:
+    type: int
+  team_number:
+    type: str
+
+# Calculations built around pulling data from TBA.
+# key is the name in our local MongoDB database, value is a dict of TBA key to TBA value
+tba:
+  leave:
+    type: bool
+    autoLineRobot: 'Yes'
+  # driver_station:
+  #   type: str
+    
+    

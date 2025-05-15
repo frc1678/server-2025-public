@@ -1,0 +1,15 @@
+# Schema for actual values for predicted_elims.py
+
+calculations:
+  actual_score_auto:
+    tba_point: autoPoints
+    type: int
+  actual_score_endgame:
+    tba_point: endGameBargePoints
+    type: int
+  actual_score_tele:
+    tba_point: teleopPoints
+    type: int
+  actual_score:
+    tba_point: totalPoints
+    type: int

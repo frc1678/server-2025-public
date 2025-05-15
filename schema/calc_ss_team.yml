@@ -1,0 +1,43 @@
+# Example: 
+#
+# {
+#     "team_number": "440",
+#     "auto_strategies": "15",
+#     "strengths": "6",
+#     "weaknesses": "3"
+#     "team_notes": "Quick, manuevering around the field well" 
+#     "can_intake_ground": True  
+# }
+#
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+data:
+  team_number:
+    type: str
+  username: 
+    type: str
+
+schema: 
+  strengths: 
+    type: str
+  weaknesses: 
+    type: str
+  team_notes: 
+    type: str 
+  can_intake_ground: 
+    type: bool 
+  auto_strategies_team: 
+    type: str
+
+averages:
+  avg_defense_rating:
+    type: float
+    tim_fields: [ss_tim.defense_rating]
+    # Required is a field that must be true
+    required: [ss_tim.played_defense]
+    

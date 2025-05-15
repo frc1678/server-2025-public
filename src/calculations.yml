@@ -1,0 +1,89 @@
+# Contains calculation order and import paths for server.py
+#
+# Example format:
+#
+# - import_path: calculations.tba_team
+#   class_name: TBATeamCalc
+#
+# It is very important that the order that appears in this file is the order
+# that is intended for the calculations to be ran in.
+
+- import_path: calculations.qr_input
+  class_name: QRInput
+  needs_internet: false
+
+- import_path: calculations.decompressor
+  class_name: Decompressor
+  needs_internet: false
+
+- import_path: calculations.tba_tims
+  class_name: TBATIMCalc
+  needs_internet: true
+
+- import_path: calculations.tba_team
+  class_name: TBATeamCalc
+  needs_internet: true
+
+- import_path: calculations.unconsolidated_totals
+  class_name: UnconsolidatedTotals
+  needs_internet: false
+
+- import_path: calculations.obj_tims
+  class_name: ObjTIMCalcs
+  needs_internet: false
+
+- import_path: calculations.auto_pims
+  class_name: AutoPIMCalc
+  needs_internet: false
+
+- import_path: calculations.auto_paths
+  class_name: AutoPathCalc
+  needs_internet: false
+
+- import_path: calculations.obj_team
+  class_name: OBJTeamCalc
+  needs_internet: false
+
+- import_path: calculations.subj_team
+  class_name: SubjTeamCalcs
+  needs_internet: false
+
+- import_path: calculations.pickability
+  class_name: PickabilityCalc
+  needs_internet: false
+
+- import_path: calculations.sim_precision
+  class_name: SimPrecisionCalc
+  needs_internet: true
+
+- import_path: calculations.scout_precision
+  class_name: ScoutPrecisionCalc
+  needs_internet: true
+
+- import_path: calculations.predicted_aim
+  class_name: PredictedAimCalc
+  needs_internet: true
+
+# - import_path: calculations.predicted_elims
+#   class_name: PredictedElims
+#   needs_internet: true
+
+- import_path: calculations.predicted_team
+  class_name: PredictedTeamCalc
+  needs_internet: true
+
+- import_path: calculations.data_validation
+  class_name: DataAccuracy
+  needs_internet: true
+
+- import_path: calculations.data_validation
+  class_name: ScoutDisagreements
+  needs_internet: false
+
+- import_path: calculations.data_validation
+  class_name: DataFlagging
+  needs_internet: true
+
+- import_path: calculations.data_validation
+  class_name: DataStatus
+  needs_internet: true

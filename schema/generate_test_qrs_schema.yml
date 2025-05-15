@@ -1,0 +1,421 @@
+# Used for generating QRs in src/generate_test_qrs.py
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 4
+
+# Contains all of the variables in the schema/match_collection_qr_schema.yml file
+# Each variable has attributes that determine how it is randomly generated
+
+# gen: if True, this variable can be randomly generated, such as amount of pieces scored.
+#      if False, variable has to be manually added to the QR, such as match numbers
+
+# symbol: the compressed name of the variable. See schema/match_collection_qr_schema.yml for more information.
+
+# type: the data type of the variable, such as int, str, or bool.
+
+# is_random: if True the variable does not depend on team skill level, and the variable is randomly generated between a min and max value.
+#            if False, the variable is generated based on team skill level, and the list of values is ordered from least skill to most skill.
+
+# values: the list of possible values the variable can be.
+#         if the type is an int, the list will contain the min and max value
+#          if the type is a str, the list will contain a list of all possible values.
+
+_list_data_separator: "&"
+# Data that is shared between the objective and subjective QRs. 
+generic_data:
+  _separator: '$' # Separates key:value pairs
+  _section_separator: '%' # Separates generic from objective/subjective data
+  # Must remain constant between versions
+  schema_version:
+    gen: False
+    symbol: A
+    type: int
+  match_number:
+    gen: False
+    symbol: B
+    type: int
+  timestamp:
+    gen: True
+    symbol: C
+    type: int
+    is_random: True
+    values: [0000000000, 9999999999]
+  match_collection_version_number:
+    gen: False
+    symbol: D
+    type: str
+  scout_name:
+    gen: True
+    symbol: E
+    type: str
+    is_random: True
+    values: ["BOB", "MIKE", "BRYAN", "CYAN", "ROHAAN", "JOHN", "TOM", "BOBINA", "ANDY", "ANN", "MICHAEL", "ANNEMARIE", "NOAH", "SUSAN", "CHRIS", "CHRISTOPHER", "JIM", "JIMOTHY"]
+  alliance_color_is_red:
+    gen: False
+    symbol: F
+    type: bool
+
+
+# Data specific to objective match collection QR
+objective_tim:
+  _start_character: '+' # First character in QR used to identify QR type
+  _separator: '$' # Separates key:value pairs
+  team_number:
+    gen: False
+    symbol: Z
+    type: str
+  # Used to determine which tablets have not submitted ('Y' in quotes because it's a keyword on its own)
+  scout_id:
+    gen: True
+    symbol: 'Y'
+    type: int
+    is_random: True
+    values: [1, 30]
+  # str representing where a robot starts in auto (0, 1, 2, 3)
+  start_position:
+    gen: True
+    symbol: X
+    type: str
+    is_random: True
+    values: ["0", "1", "2", "3"]
+  timeline:
+    gen: False
+    symbol: W
+    type: list[dict]
+  has_preload: # bool representing if a robot has a preloaded piece
+    gen: True
+    symbol: V
+    type: bool
+    is_random: True
+  cage_level:
+    gen: True
+    symbol: U
+    type: str
+    is_random: True
+    values: ["D", "S", "P", "N"]
+  cage_fail:
+    gen: True
+    symbol: T
+    type: bool
+    is_random: True
+  park:
+    gen: True
+    symbol: S
+    type: bool
+    is_random: False
+    values: False
+
+
+# TODO: CREATE TIMELINE SCHEMA
+
+# Timeline is part of objective match collection QR
+# Data for an action in the timeline
+# First value represents the length, second represents the target type, third represents the position within
+# each action
+timeline:
+  # No separators within timeline to reduce QR size. Each action is a fixed 5-character length
+  time: [3, int, 0] # Encoded in base 10. Always length 3, e.g. '051' for 51 seconds
+  action_type: [2, "Enum[str]", 1] # Encoded in alphabet base 26. Always length 2, e.g. 'AJ' for the 10th action
+
+# Data specific to subjective match collection QR
+# For subjective boolean values that are skill dependant, specify the high skill version in the values section
+subjective_aim:
+  _start_character: '*' # First character in QR used to identify QR type
+  _separator: '$' # Separates each key:value pair
+  _team_separator: '#' # Separates each team's section
+  _alliance_data_separator: '^' # Separates team data from data about the entire alliance
+  team_number: # The team number
+    gen: False
+    symbol: A
+    type: str
+  agility_score: # A ranking value between 1 and 3
+    gen: True
+    is_random: False
+    symbol: B
+    type: int
+    values: [1, 2, 3]
+  field_awareness_score: # A ranking value between 1 and 3
+    gen: True
+    is_random: False
+    symbol: C
+    type: int
+    values: [1, 2, 3]
+  died: # A boolean
+    gen: True
+    is_random: True
+    symbol: G
+    type: bool
+  can_cross_barge: # A boolean
+    gen: True
+    is_random: True
+    symbol: E
+    type: bool
+  time_left_to_climb:
+    gen: True
+    is_random: True
+    symbol: D
+    type: int
+    values: [10, 20, 30]
+  was_tippy:
+    gen: True
+    is_random: True
+    symbol: I
+    type: bool
+  hp_from_team:
+    gen: True
+    is_random: True
+    symbol: H
+    type: bool
+
+# Contains all the enums and their values
+# Action type is a alphabet base 26 string representation
+action_type:
+  auto_reef: RR
+  auto_drop_algae: AA
+  auto_drop_coral: AB
+  auto_intake_ground_1: AC
+  auto_intake_ground_2: AD
+  auto_intake_mark_1: AE
+  auto_intake_mark_2: AF
+  auto_intake_mark_3: AG
+  auto_intake_reef_F1: AH
+  auto_intake_reef_F2: AI
+  auto_intake_reef_F3: AJ
+  auto_intake_reef_F4: AK
+  auto_intake_reef_F5: AL
+  auto_intake_reef_F6: AM
+  auto_intake_station_1: AN
+  auto_intake_station_2: AO
+  tele_coral_L1: AP
+  tele_coral_L2: AQ
+  tele_coral_L3: AR
+  tele_coral_L4: BF
+  tele_drop_algae: AS
+  tele_drop_coral: AT
+  tele_intake_ground: AU
+  tele_intake_reef: AV
+  tele_intake_station: AW
+  tele_processor: AX
+  tele_net: BG
+  start_incap: AY
+  end_incap: AZ
+  to_teleop: BA
+  to_endgame: BB
+  auto_net: BC
+  auto_processor: BD
+  fail: BE
+  tele_intake_poach: BF
+
+#stores specifics about an action
+#Renewable: It can be used more than once per alliance in a match
+#Auto: Can be used in auto
+#Tele: Can be used in teleop
+#Game_piece: The game piece that the action interacts with
+#
+action_specifics:
+  auto_reef:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_net:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_processor:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_drop_algae:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_drop_coral:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_intake_ground_1:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "any"
+  auto_intake_ground_2:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "any"
+  auto_intake_mark_1_coral:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_intake_mark_2_coral:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_intake_mark_3_coral:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_intake_mark_1_algae:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_mark_2_algae:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_mark_3_algae:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F1:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F2:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F3:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F4:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F5:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_reef_F6:
+    renewable: False
+    auto: True
+    tele: False
+    game_piece: "algae"
+  auto_intake_station_1:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "coral"
+  auto_intake_station_2:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "coral"
+  tele_intake_ground:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "any"
+  tele_intake_reef:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "algae"
+  tele_intake_station:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_intake_poach:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "any"
+  tele_coral_L1:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_coral_L2:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_coral_L3:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_coral_L4:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_drop_algae:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "algae"
+  tele_drop_coral:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "coral"
+  tele_processor:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "algae"
+  tele_net:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "algae"
+  start_incap:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "none"
+  end_incap:
+    renewable: True
+    auto: False
+    tele: True
+    game_piece: "none"
+  fail:
+    renewable: True
+    auto: True
+    tele: True
+    game_piece: "none"
+  to_teleop:
+    renewable: True
+    auto: True
+    tele: False
+    game_piece: "none"
+  to_endgame:
+    renewable: True
+    auto: False
+    tele: True 
+    game_piece: "none"
+
+score_actions:
+  auto_score_actions: [auto_reef, auto_net, auto_processor, auto_drop_coral, auto_drop_algae]
+  tele_score_actions: [tele_coral_L1, tele_coral_L2, tele_coral_L3, tele_coral_L4, tele_net, tele_processor, tele_drop_algae, tele_drop_coral]
+
+game_pieces: [algae, coral]
+
+super_compressed:
+  auto_reef:
+    compressed:
+      first: fail
+      second: score
+      third: score

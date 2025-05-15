@@ -1,0 +1,90 @@
+# calc_type: direct, sum
+# agg_type: mean, median, mode, rate, sum, len, unique, None
+
+# TODO: add total pieces, add functionality to aggregate from TBA datapoints
+--score_breakdown:
+  total_points_no_foul:
+    variable: None
+    comp_level: [qm, sf, f]
+  foul_points:
+    variable: foulPoints
+    comp_level: [qm, sf, f]
+  
+  # [Leave should be here]
+  auto_L1_count:
+    variable: auto_L1_count
+    comp_level: [qm, sf, f]
+  auto_L2_count:
+    variable: auto_L2_count
+    comp_level: [qm, sf, f]
+  auto_L3_count:
+    variable: auto_L3_count
+    comp_level: [qm, sf, f]
+  auto_L4_count:
+    variable: auto_L4_count
+    comp_level: [qm, sf, f]
+  auto_points:
+    variable: autoPoints
+    comp_level: [qm, sf, f]
+  
+  tele_L1_count:
+    variable: tele_L1_count
+    comp_level: [qm, sf, f]
+  tele_L2_count:
+    variable: tele_L2_count
+    comp_level: [qm, sf, f]
+  tele_L3_count:
+    variable: tele_L3_count
+    comp_level: [qm, sf, f]
+  tele_L4_count:
+    variable: tele_L4_count
+    comp_level: [qm, sf, f]
+  total_net_count:
+    variable: netAlgaeCount
+    comp_level: [qm, sf, f]
+  total_processor_count:
+    variable: wallAlgaeCount
+    comp_level: [qm, sf, f]
+  tele_points:
+    variable: teleopPoints
+    comp_level: [qm, sf, f]
+  
+  # [Climb should be here]
+
+  coral_rp:
+    variable: coralBonusAchieved
+    comp_level: [qm]
+  barge_rp:
+    variable: bargeBonusAchieved
+    comp_level: [qm]
+  auto_rp:
+    variable: autoBonusAchieved
+    comp_level: [qm]
+  cooperated:
+    variable: coopertitionCriteriaMet
+    comp_level: [qm]
+
+--match_data:
+  events_played:
+    agg_type: len # or "unique"
+    tba: event_key
+  win_rate:
+    agg_type: rate
+    tba: winning_alliance
+  matches_played:
+    agg_type: len
+    tba: None
+
+--statbotics:
+  epa: [epa, breakdown, total_points]
+  epa_auto: [epa, breakdown, auto_points]
+  epa_tele: [epa, breakdown, teleop_points]
+  epa_endgame: [epa, breakdown, endgame_points]
+  epa_coral_rp: [epa, breakdown, coral_rp]
+  epa_barge_rp: [epa, breakdown, barge_rp]
+  epa_auto_rp: [epa, breakdown, auto_rp]
+  epa_start: [epa, stats, start]
+  epa_max: [epa, stats, max]
+  percentile_total: [epa, ranks, total, percentile]
+  percentile_country: [epa, ranks, country, percentile]
+  percentile_state: [epa, ranks, state, percentile]

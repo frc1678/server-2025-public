@@ -1,0 +1,85 @@
+# Schema for scout precisions in individual matches
+#
+# Example:
+#
+# {
+#     "scout_name": "Alison",
+#     "match_number": 5,
+#     "team_number": "1040",
+#     "alliance_color_is_red": true,
+#     "sim_precision": 5.7567,
+#     "auto_reef_precision": 5.8753,
+#     "tele_reef_precision": 3.9882,
+#     "processor_precision": 6.8448,
+#     "net_precision": 0.8378
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# TODO: Add collection information to data fields once schema is implemented
+# Non-calculated data
+data:
+  scout_name:
+    type: str
+  match_number:
+    type: int
+  team_number:
+    type: str
+  alliance_color_is_red:
+    type: bool
+
+calculations:
+  # TODO this is a hotfix for 2025 Reefscape
+  # Since human player net scoring messes up overal point precision, we calculate it manually in `sim_precision.py`
+  # total_point_precision:
+  #   type: float
+  #   requires:
+  #     unconsolidated_totals.auto_coral_L1: 3
+  #     unconsolidated_totals.auto_coral_L2: 4
+  #     unconsolidated_totals.auto_coral_L3: 6
+  #     unconsolidated_totals.auto_coral_L4: 7
+  #     unconsolidated_totals.auto_net: 2
+  #     unconsolidated_totals.tele_net: 5
+  #     unconsolidated_totals.tele_processor: 3
+  #     unconsolidated_totals.auto_processor: 2
+  #     unconsolidated_totals.tele_coral_L1: 2
+  #     unconsolidated_totals.tele_coral_L2: 3
+  #     unconsolidated_totals.tele_coral_L3: 4
+  #     unconsolidated_totals.tele_coral_L4: 5
+  #   tba_datapoints: [total_points_no_hp_foul]
+  auto_reef_precision:
+    type: float
+    requires: 
+      unconsolidated_totals.auto_coral_L1: 3
+      unconsolidated_totals.auto_coral_L2: 4
+      unconsolidated_totals.auto_coral_L3: 6
+      unconsolidated_totals.auto_coral_L4: 7
+    tba_datapoints: [autoCoralPoints]
+  tele_reef_precision:
+    type: float
+    requires:
+      unconsolidated_totals.tele_coral_L1: 2
+      unconsolidated_totals.tele_coral_L2: 3
+      unconsolidated_totals.tele_coral_L3: 4
+      unconsolidated_totals.tele_coral_L4: 5
+    tba_datapoints: [teleopCoralPoints]
+  processor_precision:
+    type: float
+    requires: 
+      unconsolidated_totals.tele_processor: 6
+      unconsolidated_totals.auto_processor: 6
+    tba_datapoints: [wallAlgaeCount]
+    tba_weight: 6
+  net_precision:
+    type: float
+    requires: 
+      unconsolidated_totals.tele_net: 4
+      unconsolidated_totals.auto_net: 4
+    tba_datapoints: [net_algae_count_no_hp]
+    tba_weight: 4

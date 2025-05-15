@@ -1,0 +1,1969 @@
+# Used for running team calcs in Server
+#
+# Example:
+#
+# {
+#     "team_number": "1678",
+#     "avg_time_left_to_climb": 5.6237,
+#     "lfm_avg_time_left_to_climb": 4.4566,
+#     "sd_time_left_to_climb": 6.309,
+#     "lfm_sd_time_left_to_climb": 3.4801,
+#     "max_time_left_to_climb": 4,
+#     "lfm_max_time_left_to_climb": 8,
+#     "tele_avg_incap": 2.6155,
+#     "auto_avg_coral_L1": 2.8202,
+#     "auto_avg_coral_L2": 6.7201,
+#     "auto_avg_coral_L3": 6.2295,
+#     "auto_avg_coral_L4": 3.2572,
+#     "auto_avg_fail_coral_L1": 4.5581,
+#     "auto_avg_net": 2.714,
+#     "auto_avg_processor": 1.0481,
+#     "auto_avg_fail_net": 5.6755,
+#     "auto_avg_fail_processor": 2.1641,
+#     "auto_avg_intake_reef": 4.6122,
+#     "auto_avg_intake_station": 3.9766,
+#     "auto_avg_intake_ground_coral": 5.0374,
+#     "auto_avg_intake_ground_algae": 1.1251,
+#     "auto_avg_drop_coral": 5.1365,
+#     "auto_avg_drop_algae": 1.6799,
+#     "tele_avg_coral_L1": 0.0129,
+#     "tele_avg_coral_L2": 5.9927,
+#     "tele_avg_coral_L3": 6.9038,
+#     "tele_avg_coral_L4": 6.8166,
+#     "tele_avg_fail_coral_L1": 3.1969,
+#     "tele_avg_fail_coral_L2": 5.3595,
+#     "tele_avg_fail_coral_L3": 5.3825,
+#     "tele_avg_fail_coral_L4": 4.5677,
+#     "tele_avg_net": 4.0747,
+#     "tele_avg_processor": 5.5782,
+#     "tele_avg_fail_net": 1.8789,
+#     "tele_avg_fail_processor": 1.564,
+#     "tele_avg_intake_ground_coral": 2.5869,
+#     "tele_avg_intake_ground_algae": 1.1124,
+#     "tele_avg_drop_coral": 2.2234,
+#     "tele_avg_drop_algae": 3.5453,
+#     "tele_avg_intake_station": 4.8036,
+#     "tele_avg_intake_reef": 4.8914,
+#     "tele_avg_total_points": 1.2236,
+#     "auto_avg_total_points": 4.498,
+#     "endgame_avg_total_points": 4.2769,
+#     "avg_total_points": 2.8488,
+#     "tele_avg_total_pieces": 3.5302,
+#     "auto_avg_total_pieces": 2.0701,
+#     "avg_total_pieces": 5.6414,
+#     "tele_avg_total_failed_pieces": 0.6617,
+#     "auto_avg_total_failed_pieces": 1.0235,
+#     "avg_total_failed_pieces": 6.0911,
+#     "tele_avg_total_intakes": 4.344,
+#     "auto_avg_total_intakes": 4.8215,
+#     "avg_total_intakes": 5.9367,
+#     "lfm_tele_avg_incap": 6.3288,
+#     "lfm_auto_avg_coral_L1": 4.23,
+#     "lfm_auto_avg_coral_L2": 3.0786,
+#     "lfm_auto_avg_coral_L3": 3.4378,
+#     "lfm_auto_avg_coral_L4": 1.1307,
+#     "lfm_auto_avg_fail_coral_L1": 5.6911,
+#     "lfm_auto_avg_net": 4.6568,
+#     "lfm_auto_avg_processor": 0.626,
+#     "lfm_auto_avg_fail_net": 0.4602,
+#     "lfm_auto_avg_fail_processor": 0.4632,
+#     "lfm_auto_avg_intake_reef": 1.3266,
+#     "lfm_auto_avg_intake_station": 5.3495,
+#     "lfm_auto_avg_intake_ground_coral": 6.4182,
+#     "lfm_auto_avg_intake_ground_algae": 6.5972,
+#     "lfm_auto_avg_drop_coral": 0.682,
+#     "lfm_auto_avg_drop_algae": 5.4459,
+#     "lfm_tele_avg_coral_L1": 0.0644,
+#     "lfm_tele_avg_coral_L2": 4.3749,
+#     "lfm_tele_avg_coral_L3": 5.6523,
+#     "lfm_tele_avg_coral_L4": 3.4759,
+#     "lfm_tele_avg_fail_coral_L1": 1.4267,
+#     "lfm_tele_avg_fail_coral_L2": 3.3312,
+#     "lfm_tele_avg_fail_coral_L3": 3.9908,
+#     "lfm_tele_avg_fail_coral_L4": 3.8013,
+#     "lfm_tele_avg_net": 0.7368,
+#     "lfm_tele_avg_processor": 4.3921,
+#     "lfm_tele_avg_fail_net": 0.1215,
+#     "lfm_tele_avg_fail_processor": 6.9277,
+#     "lfm_tele_avg_intake_ground_coral": 6.0583,
+#     "lfm_tele_avg_intake_ground_algae": 6.7314,
+#     "lfm_tele_avg_drop_coral": 0.5451,
+#     "lfm_tele_avg_drop_algae": 4.7843,
+#     "lfm_tele_avg_intake_station": 6.1515,
+#     "lfm_tele_avg_intake_reef": 2.6411,
+#     "lfm_tele_avg_total_points": 3.9553,
+#     "lfm_auto_avg_total_points": 1.2298,
+#     "lfm_endgame_avg_total_points": 0.4775,
+#     "lfm_avg_total_points": 4.5949,
+#     "lfm_tele_avg_total_pieces": 3.0091,
+#     "lfm_auto_avg_total_pieces": 3.2403,
+#     "lfm_avg_total_pieces": 6.8682,
+#     "lfm_tele_avg_total_failed_pieces": 6.1594,
+#     "lfm_auto_avg_total_failed_pieces": 5.4516,
+#     "lfm_avg_total_failed_pieces": 1.4147,
+#     "lfm_tele_avg_total_intakes": 0.216,
+#     "lfm_auto_avg_total_intakes": 6.9622,
+#     "lfm_avg_total_intakes": 3.4087,
+#     "avg_expected_cycle_time": 0.8582,
+#     "avg_expected_cycles": 2.7337,
+#     "lfm_avg_expected_cycle_time": 4.6468,
+#     "lfm_avg_expected_cycles": 1.6682,
+#     "tele_sd_incap": 5.1363,
+#     "auto_sd_coral_L1": 2.374,
+#     "auto_sd_coral_L2": 0.5931,
+#     "auto_sd_coral_L3": 1.4932,
+#     "auto_sd_coral_L4": 2.3138,
+#     "auto_sd_fail_coral_L1": 4.9996,
+#     "auto_sd_net": 6.748,
+#     "auto_sd_processor": 0.7377,
+#     "auto_sd_fail_net": 0.7179,
+#     "auto_sd_fail_processor": 2.7729,
+#     "auto_sd_intake_reef": 6.7868,
+#     "auto_sd_intake_station": 5.9699,
+#     "auto_sd_intake_ground_coral": 4.3135,
+#     "auto_sd_intake_ground_algae": 2.9283,
+#     "auto_sd_drop_coral": 3.1064,
+#     "auto_sd_drop_algae": 6.7104,
+#     "tele_sd_coral_L1": 6.281,
+#     "tele_sd_coral_L2": 5.7059,
+#     "tele_sd_coral_L3": 6.1868,
+#     "tele_sd_coral_L4": 5.2925,
+#     "tele_sd_fail_coral_L1": 4.0318,
+#     "tele_sd_fail_coral_L2": 5.5582,
+#     "tele_sd_fail_coral_L3": 2.1591,
+#     "tele_sd_fail_coral_L4": 5.8817,
+#     "tele_sd_net": 3.6537,
+#     "tele_sd_processor": 3.697,
+#     "tele_sd_fail_net": 1.2022,
+#     "tele_sd_fail_processor": 5.5597,
+#     "tele_sd_intake_ground_coral": 5.5205,
+#     "tele_sd_intake_ground_algae": 0.0255,
+#     "tele_sd_drop_coral": 3.6731,
+#     "tele_sd_drop_algae": 6.3812,
+#     "tele_sd_intake_station": 6.8072,
+#     "tele_sd_intake_reef": 3.7521,
+#     "tele_sd_total_points": 1.1448,
+#     "auto_sd_total_points": 5.9184,
+#     "endgame_sd_total_points": 6.8703,
+#     "sd_total_points": 3.9528,
+#     "auto_sd_total_pieces": 0.514,
+#     "sd_total_pieces": 3.8189,
+#     "tele_sd_total_failed_pieces": 6.0375,
+#     "auto_sd_total_failed_pieces": 3.6827,
+#     "sd_total_failed_pieces": 5.6107,
+#     "tele_sd_total_intakes": 0.3123,
+#     "auto_sd_total_intakes": 4.7822,
+#     "sd_total_intakes": 5.7183,
+#     "lfm_tele_sd_incap": 3.2615,
+#     "lfm_auto_sd_coral_L1": 0.4613,
+#     "lfm_auto_sd_coral_L2": 6.8292,
+#     "lfm_auto_sd_coral_L3": 2.3411,
+#     "lfm_auto_sd_coral_L4": 1.6383,
+#     "lfm_auto_sd_fail_coral_L1": 5.2229,
+#     "lfm_auto_sd_net": 6.7749,
+#     "lfm_auto_sd_processor": 4.5948,
+#     "lfm_auto_sd_fail_net": 1.2686,
+#     "lfm_auto_sd_fail_processor": 1.201,
+#     "lfm_auto_sd_intake_reef": 5.4724,
+#     "lfm_auto_sd_intake_station": 3.4177,
+#     "lfm_auto_sd_intake_ground_coral": 0.8457,
+#     "lfm_auto_sd_intake_ground_algae": 4.7886,
+#     "lfm_auto_sd_drop_coral": 3.6686,
+#     "lfm_auto_sd_drop_algae": 2.2217,
+#     "lfm_tele_sd_coral_L1": 3.7406,
+#     "lfm_tele_sd_coral_L2": 5.057,
+#     "lfm_tele_sd_coral_L3": 2.7419,
+#     "lfm_tele_sd_coral_L4": 0.0048,
+#     "lfm_tele_sd_fail_coral_L1": 5.2158,
+#     "lfm_tele_sd_fail_coral_L2": 6.1312,
+#     "lfm_tele_sd_fail_coral_L3": 1.9953,
+#     "lfm_tele_sd_fail_coral_L4": 2.9122,
+#     "lfm_tele_sd_net": 0.6437,
+#     "lfm_tele_sd_processor": 4.8963,
+#     "lfm_tele_sd_fail_net": 2.4769,
+#     "lfm_tele_sd_fail_processor": 4.9602,
+#     "lfm_tele_sd_intake_ground_coral": 2.3088,
+#     "lfm_tele_sd_intake_ground_algae": 6.6225,
+#     "lfm_tele_sd_drop_coral": 3.4301,
+#     "lfm_tele_sd_drop_algae": 2.9573,
+#     "lfm_tele_sd_intake_station": 1.6338,
+#     "lfm_tele_sd_intake_reef": 6.2874,
+#     "lfm_tele_sd_total_points": 5.4965,
+#     "lfm_auto_sd_total_points": 4.5039,
+#     "lfm_endgame_sd_total_points": 4.3697,
+#     "lfm_sd_total_points": 2.2004,
+#     "lfm_auto_sd_total_pieces": 0.7494,
+#     "lfm_sd_total_pieces": 2.3305,
+#     "lfm_tele_sd_total_failed_pieces": 0.1781,
+#     "lfm_auto_sd_total_failed_pieces": 1.7117,
+#     "lfm_sd_total_failed_pieces": 2.7477,
+#     "lfm_tele_sd_total_intakes": 3.6517,
+#     "lfm_auto_sd_total_intakes": 3.3181,
+#     "lfm_sd_total_intakes": 1.2553,
+#     "sd_expected_cycle_time": 1.932,
+#     "sd_expected_cycles": 6.4823,
+#     "lfm_sd_expected_cycle_time": 5.576,
+#     "lfm_sd_expected_cycles": 1.7693,
+#     "cage_attempts_shallow": 9,
+#     "cage_attempts_deep": 5,
+#     "cage_attempts_all": 6,
+#     "cage_successes_shallow": 6,
+#     "cage_successes_deep": 2,
+#     "cage_successes_all": 8,
+#     "parks": 9,
+#     "cage_fails_all": 1,
+#     "cage_fails_shallow": 6,
+#     "cage_fails_deep": 4,
+#     "position_zero_starts": 2,
+#     "position_one_starts": 3,
+#     "position_two_starts": 7,
+#     "position_three_starts": 4,
+#     "position_four_starts": 2,
+#     "position_five_starts": 2,
+#     "preloaded_starts": 6,
+#     "preload_successes": 9,
+#     "matches_incap": 8,
+#     "matches_played": 7,
+#     "lfm_cage_attempts_shallow": 3,
+#     "lfm_cage_attempts_deep": 5,
+#     "lfm_cage_attempts_all": 6,
+#     "lfm_cage_successes_shallow": 8,
+#     "lfm_cage_successes_deep": 8,
+#     "lfm_cage_successes_all": 3,
+#     "lfm_parks": 7,
+#     "lfm_cage_fails_all": 1,
+#     "lfm_cage_fails_shallow": 4,
+#     "lfm_cage_fails_deep": 5,
+#     "lfm_position_zero_starts": 6,
+#     "lfm_position_one_starts": 5,
+#     "lfm_position_two_starts": 8,
+#     "lfm_position_three_starts": 9,
+#     "lfm_position_four_starts": 8,
+#     "lfm_position_five_starts": 8,
+#     "lfm_preloaded_starts": 1,
+#     "lfm_preload_successes": 7,
+#     "lfm_matches_incap": 2,
+#     "matches_played_defense": 5,
+#     "lfm_matches_played_defense": 7,
+#     "matches_with_broken_mechanism": 9,
+#     "lfm_matches_with_broken_mechanism": 2,
+#     "auto_max_coral_L1": 1,
+#     "auto_max_coral_L2": 6,
+#     "auto_max_coral_L3": 6,
+#     "auto_max_coral_L4": 9,
+#     "auto_max_fail_coral_L1": 7,
+#     "auto_max_fail_coral_L2": 9,
+#     "auto_max_fail_coral_L3": 6,
+#     "auto_max_fail_coral_L4": 9,
+#     "auto_max_net": 8,
+#     "auto_max_fail_net": 5,
+#     "auto_max_processor": 5,
+#     "auto_max_fail_processor": 4,
+#     "auto_max_drop_coral": 8,
+#     "auto_max_drop_algae": 9,
+#     "auto_max_intake_reef": 3,
+#     "auto_max_intake_station": 6,
+#     "auto_max_intake_ground_coral": 6,
+#     "auto_max_intake_ground_algae": 5,
+#     "auto_max_total_intakes": 8,
+#     "auto_max_total_pieces": 6,
+#     "auto_max_total_failed_pieces": 9,
+#     "tele_max_coral_L1": 7,
+#     "tele_max_coral_L2": 4,
+#     "tele_max_coral_L3": 8,
+#     "tele_max_coral_L4": 7,
+#     "tele_max_fail_coral_L1": 7,
+#     "tele_max_fail_coral_L2": 9,
+#     "tele_max_fail_coral_L3": 6,
+#     "tele_max_fail_coral_L4": 2,
+#     "tele_max_net": 3,
+#     "tele_max_fail_net": 1,
+#     "tele_max_processor": 4,
+#     "tele_max_fail_processor": 5,
+#     "tele_max_drop_coral": 3,
+#     "tele_max_drop_algae": 8,
+#     "tele_max_total_pieces": 7,
+#     "tele_max_total_intakes": 4,
+#     "tele_max_total_failed_pieces": 1,
+#     "tele_max_intake_ground_coral": 8,
+#     "tele_max_intake_ground_algae": 9,
+#     "tele_max_intake_station": 4,
+#     "tele_max_intake_reef": 9,
+#     "max_incap_time": 6,
+#     "min_expected_cycle_time": 1.4789,
+#     "max_expected_cycle_time": 3.9462,
+#     "max_expected_cycles": 3.5561,
+#     "max_total_intakes": 3,
+#     "max_total_pieces": 6,
+#     "endgame_max_total_points": 4,
+#     "max_total_points": 3,
+#     "tele_max_total_points": 2,
+#     "auto_max_total_points": 2,
+#     "lfm_auto_max_coral_L1": 6,
+#     "lfm_auto_max_coral_L2": 3,
+#     "lfm_auto_max_coral_L3": 3,
+#     "lfm_auto_max_coral_L4": 8,
+#     "lfm_auto_max_fail_coral_L1": 7,
+#     "lfm_auto_max_fail_coral_L2": 9,
+#     "lfm_auto_max_fail_coral_L3": 7,
+#     "lfm_auto_max_fail_coral_L4": 7,
+#     "lfm_auto_max_net": 9,
+#     "lfm_auto_max_fail_net": 1,
+#     "lfm_auto_max_processor": 8,
+#     "lfm_auto_max_fail_processor": 8,
+#     "lfm_auto_max_drop_coral": 2,
+#     "lfm_auto_max_drop_algae": 2,
+#     "lfm_auto_max_intake_reef": 9,
+#     "lfm_auto_max_intake_station": 6,
+#     "lfm_auto_max_intake_ground_coral": 9,
+#     "lfm_auto_max_intake_ground_algae": 7,
+#     "lfm_auto_max_total_intakes": 2,
+#     "lfm_auto_max_total_pieces": 5,
+#     "lfm_auto_max_total_failed_pieces": 8,
+#     "lfm_tele_max_coral_L1": 3,
+#     "lfm_tele_max_coral_L2": 9,
+#     "lfm_tele_max_coral_L3": 6,
+#     "lfm_tele_max_coral_L4": 3,
+#     "lfm_tele_max_fail_coral_L1": 1,
+#     "lfm_tele_max_fail_coral_L2": 9,
+#     "lfm_tele_max_fail_coral_L3": 7,
+#     "lfm_tele_max_fail_coral_L4": 8,
+#     "lfm_tele_max_net": 1,
+#     "lfm_tele_max_fail_net": 2,
+#     "lfm_tele_max_processor": 3,
+#     "lfm_tele_max_fail_processor": 2,
+#     "lfm_tele_max_drop_coral": 2,
+#     "lfm_tele_max_drop_algae": 9,
+#     "lfm_tele_max_total_pieces": 5,
+#     "lfm_tele_max_total_intakes": 2,
+#     "lfm_tele_max_total_failed_pieces": 5,
+#     "lfm_tele_max_intake_ground_coral": 9,
+#     "lfm_tele_max_intake_ground_algae": 3,
+#     "lfm_tele_max_intake_station": 4,
+#     "lfm_tele_max_intake_reef": 6,
+#     "lfm_max_incap_time": 6,
+#     "lfm_min_expected_cycle_time": 4.7161,
+#     "lfm_max_expected_cycle_time": 0.1405,
+#     "lfm_max_expected_cycles": 2.3654,
+#     "lfm_max_total_intakes": 1,
+#     "lfm_max_total_pieces": 1,
+#     "lfm_endgame_max_total_points": 6,
+#     "lfm_max_total_points": 3,
+#     "lfm_tele_max_total_points": 5,
+#     "lfm_auto_max_total_points": 8,
+#     "mode_start_position": [
+#         1
+#     ],
+#     "lfm_mode_start_position": [
+#         1
+#     ],
+#     "mode_cage_level": [
+#         "D"
+#     ],
+#     "lfm_mode_cage_level": [
+#         "D"
+#     ],
+#     "auto_coral_L1_percent_success": 3.8972,
+#     "auto_coral_L2_percent_success": 1.3831,
+#     "auto_coral_L3_percent_success": 3.3969,
+#     "auto_coral_L4_percent_success": 2.8463,
+#     "auto_net_percent_success": 4.6158,
+#     "auto_processor_percent_success": 2.8812,
+#     "tele_coral_L1_percent_success": 6.247,
+#     "tele_coral_L2_percent_success": 3.3186,
+#     "tele_coral_L3_percent_success": 4.0094,
+#     "tele_coral_L4_percent_success": 0.5556,
+#     "tele_net_percent_success": 5.303,
+#     "tele_processor_percent_success": 0.1191,
+#     "cage_percent_success_all": 5.6537,
+#     "cage_percent_success_shallow": 6.7983,
+#     "cage_percent_success_deep": 3.2438,
+#     "park_percent": 5.2739,
+#     "auto_preload_percent_success": 5.4183,
+#     "lfm_auto_coral_L1_percent_success": 2.3465,
+#     "lfm_auto_coral_L2_percent_success": 4.9668,
+#     "lfm_auto_coral_L3_percent_success": 1.4472,
+#     "lfm_auto_coral_L4_percent_success": 4.6969,
+#     "lfm_auto_net_percent_success": 5.4531,
+#     "lfm_auto_processor_percent_success": 6.8783,
+#     "lfm_tele_coral_L1_percent_success": 3.1342,
+#     "lfm_tele_coral_L2_percent_success": 5.3585,
+#     "lfm_tele_coral_L3_percent_success": 0.0674,
+#     "lfm_tele_coral_L4_percent_success": 3.4425,
+#     "lfm_tele_net_percent_success": 6.8684,
+#     "lfm_tele_processor_percent_success": 4.1616,
+#     "lfm_cage_percent_success_all": 5.443,
+#     "lfm_cage_percent_success_shallow": 1.5331,
+#     "lfm_cage_percent_success_deep": 0.2943,
+#     "lfm_park_percent": 3.6127,
+#     "lfm_auto_preload_percent_success": 5.455,
+#     "median_nonzero_incap_time": 2.3526,
+#     "lfm_median_nonzero_incap_time": 3.9673,
+#     "median_nonzero_expected_cycle_time": 6.3315,
+#     "lfm_median_nonzero_expected_cycle_time": 6.6594,
+#     "median_nonzero_expected_cycles": 4.2569,
+#     "lfm_median_nonzero_expected_cycles": 6.5605,
+#     "total_incap_time": 4,
+#     "lfm_total_incap_time": 1
+#     "tele_total_intake_algae": 5,
+#     "tele_total_intake_coral": 20,
+# }
+
+
+# doozer
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+# Stores fields that will be added to database but do not require calculations
+data:
+  team_number:
+    type: str
+  has_compatible_auto:
+    type: bool
+  matt_drivetrain:
+    type: str
+  electrical_robustness:
+    type: float
+  mechanical_robustness:
+    type: float
+  robot_complexity:
+    type: float
+  architecture:
+    type: str
+  matt_notes:
+    type: str
+
+# Averages of fields in consolidated TIMs
+averages:
+  tele_avg_incap:
+    tim_fields: [obj_tim.tele_incap]
+    type: float
+  auto_avg_coral_L1:
+    tim_fields: [obj_tim.auto_coral_L1]
+    type: float
+  auto_avg_coral_L2:
+    tim_fields: [obj_tim.auto_coral_L2]
+    type: float
+  auto_avg_coral_L3:
+    tim_fields: [obj_tim.auto_coral_L3]
+    type: float
+  auto_avg_coral_L4:
+    tim_fields: [obj_tim.auto_coral_L4]
+    type: float
+  auto_avg_fail_coral_L1:
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+    type: float
+  auto_avg_fail_coral_L2:
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+    type: float
+  auto_avg_fail_coral_L3:
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+    type: float
+  auto_avg_fail_coral_L4:
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+    type: float
+  auto_avg_net:
+    tim_fields: [obj_tim.auto_net]
+    type: float
+  auto_avg_processor:
+    tim_fields: [obj_tim.auto_processor]
+    type: float
+  auto_avg_fail_net:
+    tim_fields: [obj_tim.auto_fail_net]
+    type: float
+  auto_avg_fail_processor:
+    tim_fields: [obj_tim.auto_fail_processor]
+    type: float
+  auto_avg_intake_reef:
+    tim_fields: [obj_tim.auto_intake_reef]
+    type: float
+  auto_avg_intake_station:
+    tim_fields: [obj_tim.auto_intake_station]
+    type: float
+  auto_avg_intake_ground_coral:
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+    type: float
+  auto_avg_intake_ground_algae:
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+    type: float
+  auto_avg_drop_coral:
+    tim_fields: [obj_tim.auto_drop_coral]
+    type: float
+  auto_avg_drop_algae:
+    tim_fields: [obj_tim.auto_drop_algae]
+    type: float
+  tele_avg_coral_L1:
+    tim_fields: [obj_tim.tele_coral_L1]
+    type: float
+  tele_avg_coral_L2:
+    tim_fields: [obj_tim.tele_coral_L2]
+    type: float
+  tele_avg_coral_L3:
+    tim_fields: [obj_tim.tele_coral_L3]
+    type: float
+  tele_avg_coral_L4:
+    tim_fields: [obj_tim.tele_coral_L4]
+    type: float
+  tele_avg_fail_coral_L1:
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+    type: float
+  tele_avg_fail_coral_L2:
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+    type: float
+  tele_avg_fail_coral_L3:
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+    type: float
+  tele_avg_fail_coral_L4:
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+    type: float
+  tele_avg_net:
+    tim_fields: [obj_tim.tele_net]
+    type: float
+  tele_avg_processor:
+    tim_fields: [obj_tim.tele_processor]
+    type: float
+  tele_avg_fail_net:
+    tim_fields: [obj_tim.tele_fail_net]
+    type: float
+  tele_avg_fail_processor:
+    tim_fields: [obj_tim.tele_fail_processor]
+    type: float
+  tele_avg_intake_ground_coral:
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: float
+  tele_avg_intake_ground_algae:
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: float
+  tele_avg_drop_coral: 
+    tim_fields: [obj_tim.tele_drop_coral]
+    type: float
+  tele_avg_drop_algae: 
+    tim_fields: [obj_tim.tele_drop_algae]
+    type: float
+  tele_avg_intake_station:
+    tim_fields: [obj_tim.tele_intake_station]
+    type: float
+  tele_avg_intake_reef:
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: float
+  tele_avg_intake_poach:
+    tim_fields: [obj_tim.tele_intake_poach]
+    type: float
+  tele_avg_total_points:
+    tim_fields: [obj_tim.tele_total_points]
+    type: float
+  auto_avg_total_points:
+    tim_fields: [obj_tim.auto_total_points]
+    type: float
+  endgame_avg_total_points:
+    tim_fields: [obj_tim.endgame_total_points]
+    type: float
+  avg_total_points:
+    tim_fields: [obj_tim.total_points]
+    type: float
+  tele_avg_total_pieces:
+    tim_fields: [obj_tim.tele_total_pieces]
+    type: float
+  auto_avg_total_pieces:
+    tim_fields: [obj_tim.auto_total_pieces]
+    type: float
+  avg_total_pieces:
+    tim_fields: [obj_tim.total_pieces]
+    type: float
+  tele_avg_total_failed_pieces:
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+    type: float
+  auto_avg_total_failed_pieces:
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+    type: float
+  avg_total_failed_pieces:
+    tim_fields: [obj_tim.total_failed_pieces]
+    type: float
+  tele_avg_total_intakes:
+    tim_fields: [obj_tim.tele_total_intakes]
+    type: float
+  auto_avg_total_intakes:
+    tim_fields: [obj_tim.auto_total_intakes]
+    type: float
+  avg_total_intakes:
+    tim_fields: [obj_tim.total_intakes]
+    type: float
+  lfm_tele_avg_incap:
+    tim_fields: [obj_tim.tele_incap]
+    type: float
+  lfm_auto_avg_coral_L1:
+    tim_fields: [obj_tim.auto_coral_L1]
+    type: float
+  lfm_auto_avg_coral_L2:
+    tim_fields: [obj_tim.auto_coral_L2]
+    type: float
+  lfm_auto_avg_coral_L3:
+    tim_fields: [obj_tim.auto_coral_L3]
+    type: float
+  lfm_auto_avg_coral_L4:
+    tim_fields: [obj_tim.auto_coral_L4]
+    type: float
+  lfm_auto_avg_fail_coral_L1:
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+    type: float
+  lfm_auto_avg_fail_coral_L2:
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+    type: float
+  lfm_auto_avg_fail_coral_L3:
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+    type: float
+  lfm_auto_avg_fail_coral_L4:
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+    type: float
+  lfm_auto_avg_net:
+    tim_fields: [obj_tim.auto_net]
+    type: float
+  lfm_auto_avg_processor:
+    tim_fields: [obj_tim.auto_processor]
+    type: float
+  lfm_auto_avg_fail_net:
+    tim_fields: [obj_tim.auto_fail_net]
+    type: float
+  lfm_auto_avg_fail_processor:
+    tim_fields: [obj_tim.auto_fail_processor]
+    type: float
+  lfm_auto_avg_intake_reef:
+    tim_fields: [obj_tim.auto_intake_reef]
+    type: float
+  lfm_auto_avg_intake_station:
+    tim_fields: [obj_tim.auto_intake_station]
+    type: float
+  lfm_auto_avg_intake_ground_coral:
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+    type: float
+  lfm_auto_avg_intake_ground_algae:
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+    type: float
+  lfm_auto_avg_drop_coral:
+    tim_fields: [obj_tim.auto_drop_coral]
+    type: float
+  lfm_auto_avg_drop_algae:
+    tim_fields: [obj_tim.auto_drop_algae]
+    type: float
+  lfm_tele_avg_coral_L1:
+    tim_fields: [obj_tim.tele_coral_L1]
+    type: float
+  lfm_tele_avg_coral_L2:
+    tim_fields: [obj_tim.tele_coral_L2]
+    type: float
+  lfm_tele_avg_coral_L3:
+    tim_fields: [obj_tim.tele_coral_L3]
+    type: float
+  lfm_tele_avg_coral_L4:
+    tim_fields: [obj_tim.tele_coral_L4]
+    type: float
+  lfm_tele_avg_fail_coral_L1:
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+    type: float
+  lfm_tele_avg_fail_coral_L2:
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+    type: float
+  lfm_tele_avg_fail_coral_L3:
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+    type: float
+  lfm_tele_avg_fail_coral_L4:
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+    type: float
+  lfm_tele_avg_net:
+    tim_fields: [obj_tim.tele_net]
+    type: float
+  lfm_tele_avg_processor:
+    tim_fields: [obj_tim.tele_processor]
+    type: float
+  lfm_tele_avg_fail_net:
+    tim_fields: [obj_tim.tele_fail_net]
+    type: float
+  lfm_tele_avg_fail_processor:
+    tim_fields: [obj_tim.tele_fail_processor]
+    type: float
+  lfm_tele_avg_intake_ground_coral:
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: float
+  lfm_tele_avg_intake_ground_algae:
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: float
+  lfm_tele_avg_drop_coral: 
+    tim_fields: [obj_tim.tele_drop_coral]
+    type: float
+  lfm_tele_avg_drop_algae: 
+    tim_fields: [obj_tim.tele_drop_algae]
+    type: float
+  lfm_tele_avg_intake_station:
+    tim_fields: [obj_tim.tele_intake_station]
+    type: float
+  lfm_tele_avg_intake_reef:
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: float
+  lfm_tele_avg_intake_poach:
+    tim_fields: [obj_tim.tele_intake_poach]
+    type: float
+  lfm_tele_avg_total_points:
+    tim_fields: [obj_tim.tele_total_points]
+    type: float
+  lfm_auto_avg_total_points:
+    tim_fields: [obj_tim.auto_total_points]
+    type: float
+  lfm_endgame_avg_total_points:
+    tim_fields: [obj_tim.endgame_total_points]
+    type: float
+  lfm_avg_total_points:
+    tim_fields: [obj_tim.total_points]
+    type: float
+  lfm_tele_avg_total_pieces:
+    tim_fields: [obj_tim.tele_total_pieces]
+    type: float
+  lfm_auto_avg_total_pieces:
+    tim_fields: [obj_tim.auto_total_pieces]
+    type: float
+  lfm_avg_total_pieces:
+    tim_fields: [obj_tim.total_pieces]
+    type: float
+  lfm_tele_avg_total_failed_pieces:
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+    type: float
+  lfm_auto_avg_total_failed_pieces:
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+    type: float
+  lfm_avg_total_failed_pieces:
+    tim_fields: [obj_tim.total_failed_pieces]
+    type: float
+  lfm_tele_avg_total_intakes:
+    tim_fields: [obj_tim.tele_total_intakes]
+    type: float
+  lfm_auto_avg_total_intakes:
+    tim_fields: [obj_tim.auto_total_intakes]
+    type: float
+  lfm_avg_total_intakes:
+    tim_fields: [obj_tim.total_intakes]
+    type: float
+  avg_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  avg_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  lfm_avg_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  lfm_avg_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  tele_avg_intake_algae:
+    tim_fields: [obj_tim.tele_intake_ground_algae, obj_tim.tele_intake_reef]
+    type: float
+  tele_avg_intake_coral:
+    tim_fields: [obj_tim.tele_intake_ground_coral, obj_tim.tele_intake_station]
+    type: float
+  auto_avg_intake_algae:
+    tim_fields: [obj_tim.auto_intake_ground_algae, obj_tim.auto_intake_reef]
+    type: float
+  auto_avg_intake_coral:
+    tim_fields: [obj_tim.auto_intake_ground_coral, obj_tim.auto_intake_station]
+    type: float
+
+# Standard deviations of fields in consolidated TIMs
+# Used for predictions
+standard_deviations:
+  tele_sd_incap:
+    tim_fields: [obj_tim.tele_incap]
+    type: float
+  auto_sd_coral_L1:
+    tim_fields: [obj_tim.auto_coral_L1]
+    type: float
+  auto_sd_coral_L2:
+    tim_fields: [obj_tim.auto_coral_L2]
+    type: float
+  auto_sd_coral_L3:
+    tim_fields: [obj_tim.auto_coral_L3]
+    type: float
+  auto_sd_coral_L4:
+    tim_fields: [obj_tim.auto_coral_L4]
+    type: float
+  auto_sd_fail_coral_L1:
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+    type: float
+  auto_sd_fail_coral_L2:
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+    type: float
+  auto_sd_fail_coral_L3:
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+    type: float
+  auto_sd_fail_coral_L4:
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+    type: float
+  auto_sd_net:
+    tim_fields: [obj_tim.auto_net]
+    type: float
+  auto_sd_processor:
+    tim_fields: [obj_tim.auto_processor]
+    type: float
+  auto_sd_fail_net:
+    tim_fields: [obj_tim.auto_fail_net]
+    type: float
+  auto_sd_fail_processor:
+    tim_fields: [obj_tim.auto_fail_processor]
+    type: float
+  auto_sd_intake_reef:
+    tim_fields: [obj_tim.auto_intake_reef]
+    type: float
+  auto_sd_intake_station:
+    tim_fields: [obj_tim.auto_intake_station]
+    type: float
+  auto_sd_intake_ground_coral:
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+    type: float
+  auto_sd_intake_ground_algae:
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+    type: float
+  auto_sd_drop_coral:
+    tim_fields: [obj_tim.auto_drop_coral]
+    type: float
+  auto_sd_drop_algae:
+    tim_fields: [obj_tim.auto_drop_algae]
+    type: float
+  tele_sd_coral_L1:
+    tim_fields: [obj_tim.tele_coral_L1]
+    type: float
+  tele_sd_coral_L2:
+    tim_fields: [obj_tim.tele_coral_L2]
+    type: float
+  tele_sd_coral_L3:
+    tim_fields: [obj_tim.tele_coral_L3]
+    type: float
+  tele_sd_coral_L4:
+    tim_fields: [obj_tim.tele_coral_L4]
+    type: float
+  tele_sd_fail_coral_L1:
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+    type: float
+  tele_sd_fail_coral_L2:
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+    type: float
+  tele_sd_fail_coral_L3:
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+    type: float
+  tele_sd_fail_coral_L4:
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+    type: float
+  tele_sd_net:
+    tim_fields: [obj_tim.tele_net]
+    type: float
+  tele_sd_processor:
+    tim_fields: [obj_tim.tele_processor]
+    type: float
+  tele_sd_fail_net:
+    tim_fields: [obj_tim.tele_fail_net]
+    type: float
+  tele_sd_fail_processor:
+    tim_fields: [obj_tim.tele_fail_processor]
+    type: float
+  tele_sd_intake_ground_coral:
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: float
+  tele_sd_intake_ground_algae:
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: float
+  tele_sd_drop_coral: 
+    tim_fields: [obj_tim.tele_drop_coral]
+    type: float
+  tele_sd_drop_algae: 
+    tim_fields: [obj_tim.tele_drop_algae]
+    type: float
+  tele_sd_intake_station:
+    tim_fields: [obj_tim.tele_intake_station]
+    type: float
+  tele_sd_intake_reef:
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: float
+  tele_sd_total_points:
+    tim_fields: [obj_tim.tele_total_points]
+    type: float
+  auto_sd_total_points:
+    tim_fields: [obj_tim.auto_total_points]
+    type: float
+  endgame_sd_total_points:
+    tim_fields: [obj_tim.endgame_total_points]
+    type: float
+  sd_total_points:
+    tim_fields: [obj_tim.total_points]
+    type: float
+  tele_sd_total_pieces:
+    tim_fields: [obj_tim.tele_total_pieces]
+    type: float
+  auto_sd_total_pieces:
+    tim_fields: [obj_tim.auto_total_pieces]
+    type: float
+  sd_total_pieces:
+    tim_fields: [obj_tim.total_pieces]
+    type: float
+  tele_sd_total_failed_pieces:
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+    type: float
+  auto_sd_total_failed_pieces:
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+    type: float
+  sd_total_failed_pieces:
+    tim_fields: [obj_tim.total_failed_pieces]
+    type: float
+  tele_sd_total_intakes:
+    tim_fields: [obj_tim.tele_total_intakes]
+    type: float
+  auto_sd_total_intakes:
+    tim_fields: [obj_tim.auto_total_intakes]
+    type: float
+  sd_total_intakes:
+    tim_fields: [obj_tim.total_intakes]
+    type: float
+  lfm_tele_sd_incap:
+    tim_fields: [obj_tim.tele_incap]
+    type: float
+  lfm_auto_sd_coral_L1:
+    tim_fields: [obj_tim.auto_coral_L1]
+    type: float
+  lfm_auto_sd_coral_L2:
+    tim_fields: [obj_tim.auto_coral_L2]
+    type: float
+  lfm_auto_sd_coral_L3:
+    tim_fields: [obj_tim.auto_coral_L3]
+    type: float
+  lfm_auto_sd_coral_L4:
+    tim_fields: [obj_tim.auto_coral_L4]
+    type: float
+  lfm_auto_sd_fail_coral_L1:
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+    type: float
+  lfm_auto_sd_fail_coral_L2:
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+    type: float
+  lfm_auto_sd_fail_coral_L3:
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+    type: float
+  lfm_auto_sd_fail_coral_L4:
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+    type: float
+  lfm_auto_sd_net:
+    tim_fields: [obj_tim.auto_net]
+    type: float
+  lfm_auto_sd_processor:
+    tim_fields: [obj_tim.auto_processor]
+    type: float
+  lfm_auto_sd_fail_net:
+    tim_fields: [obj_tim.auto_fail_net]
+    type: float
+  lfm_auto_sd_fail_processor:
+    tim_fields: [obj_tim.auto_fail_processor]
+    type: float
+  lfm_auto_sd_intake_reef:
+    tim_fields: [obj_tim.auto_intake_reef]
+    type: float
+  lfm_auto_sd_intake_station:
+    tim_fields: [obj_tim.auto_intake_station]
+    type: float
+  lfm_auto_sd_intake_ground_coral:
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+    type: float
+  lfm_auto_sd_intake_ground_algae:
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+    type: float
+  lfm_auto_sd_drop_coral:
+    tim_fields: [obj_tim.auto_drop_coral]
+    type: float
+  lfm_auto_sd_drop_algae:
+    tim_fields: [obj_tim.auto_drop_algae]
+    type: float
+  lfm_tele_sd_coral_L1:
+    tim_fields: [obj_tim.tele_coral_L1]
+    type: float
+  lfm_tele_sd_coral_L2:
+    tim_fields: [obj_tim.tele_coral_L2]
+    type: float
+  lfm_tele_sd_coral_L3:
+    tim_fields: [obj_tim.tele_coral_L3]
+    type: float
+  lfm_tele_sd_coral_L4:
+    tim_fields: [obj_tim.tele_coral_L4]
+    type: float
+  lfm_tele_sd_fail_coral_L1:
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+    type: float
+  lfm_tele_sd_fail_coral_L2:
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+    type: float
+  lfm_tele_sd_fail_coral_L3:
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+    type: float
+  lfm_tele_sd_fail_coral_L4:
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+    type: float
+  lfm_tele_sd_net:
+    tim_fields: [obj_tim.tele_net]
+    type: float
+  lfm_tele_sd_processor:
+    tim_fields: [obj_tim.tele_processor]
+    type: float
+  lfm_tele_sd_fail_net:
+    tim_fields: [obj_tim.tele_fail_net]
+    type: float
+  lfm_tele_sd_fail_processor:
+    tim_fields: [obj_tim.tele_fail_processor]
+    type: float
+  lfm_tele_sd_intake_ground_coral:
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: float
+  lfm_tele_sd_intake_ground_algae:
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: float
+  lfm_tele_sd_drop_coral: 
+    tim_fields: [obj_tim.tele_drop_coral]
+    type: float
+  lfm_tele_sd_drop_algae: 
+    tim_fields: [obj_tim.tele_drop_algae]
+    type: float
+  lfm_tele_sd_intake_station:
+    tim_fields: [obj_tim.tele_intake_station]
+    type: float
+  lfm_tele_sd_intake_reef:
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: float
+  lfm_tele_sd_total_points:
+    tim_fields: [obj_tim.tele_total_points]
+    type: float
+  lfm_auto_sd_total_points:
+    tim_fields: [obj_tim.auto_total_points]
+    type: float
+  lfm_endgame_sd_total_points:
+    tim_fields: [obj_tim.endgame_total_points]
+    type: float
+  lfm_sd_total_points:
+    tim_fields: [obj_tim.total_points]
+    type: float
+  lfm_tele_sd_total_pieces:
+    tim_fields: [obj_tim.tele_total_pieces]
+    type: float
+  lfm_auto_sd_total_pieces:
+    tim_fields: [obj_tim.auto_total_pieces]
+    type: float
+  lfm_sd_total_pieces:
+    tim_fields: [obj_tim.total_pieces]
+    type: float
+  lfm_tele_sd_total_failed_pieces:
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+    type: float
+  lfm_auto_sd_total_failed_pieces:
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+    type: float
+  lfm_sd_total_failed_pieces:
+    tim_fields: [obj_tim.total_failed_pieces]
+    type: float
+  lfm_tele_sd_total_intakes:
+    tim_fields: [obj_tim.tele_total_intakes]
+    type: float
+  lfm_auto_sd_total_intakes:
+    tim_fields: [obj_tim.auto_total_intakes]
+    type: float
+  lfm_sd_total_intakes:
+    tim_fields: [obj_tim.total_intakes]
+    type: float
+  sd_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  sd_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  lfm_sd_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  lfm_sd_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+
+# Counts of occurrences in consolidated TIMs
+counts:
+  cage_attempts_shallow:
+    tim_fields:
+      obj_tim.cage_level: 'S'
+    type: int
+  cage_attempts_deep:
+    tim_fields:
+      obj_tim.cage_level: 'D'
+    type: int
+  cage_attempts_all:
+    tim_fields:
+      not: 
+        obj_tim.cage_level: 'N'
+    type: int
+  cage_successes_shallow:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: True
+        - obj_tim.cage_level: 'N'
+        - obj_tim.cage_level: 'D'
+    type: int
+  cage_successes_deep:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: True
+        - obj_tim.cage_level: 'N'
+        - obj_tim.cage_level: 'S'
+    type: int
+  cage_successes_all:
+    tim_fields:
+      not:
+        obj_tim.cage_fail: True
+        obj_tim.cage_level: 'N'
+    type: int
+  parks:
+    tim_fields:
+      obj_tim.park: True
+    type: int
+  cage_fails_all:
+    tim_fields:
+      obj_tim.cage_fail: True
+    type: int
+  cage_fails_shallow:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: False
+        - obj_tim.cage_level: 'D'
+        - obj_tim.cage_level: 'N'
+    type: int
+  cage_fails_deep:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: False
+        - obj_tim.cage_level: 'S'
+        - obj_tim.cage_level: 'N'
+    type: int
+  position_zero_starts:
+    tim_fields:
+      obj_tim.start_position: '0'
+    type: int
+  position_one_starts:
+    tim_fields:
+      obj_tim.start_position: '1'
+    type: int
+  position_two_starts:
+    tim_fields:
+      obj_tim.start_position: '2'
+    type: int
+  position_three_starts:
+    tim_fields:
+      obj_tim.start_position: '3'
+    type: int
+  position_four_starts:
+    tim_fields:
+      obj_tim.start_position: '4'
+    type: int
+  position_five_starts:
+    tim_fields:
+      obj_tim.start_position: '5'
+    type: int
+  preloaded_starts:
+    tim_fields:
+      obj_tim.has_preload: True
+    type: int
+  preload_successes:
+    tim_fields:
+      obj_tim.scored_preload: True
+    type: int
+  matches_incap:
+    tim_fields:
+      not:
+        obj_tim.tele_incap: 0
+    type: int
+  matches_played:
+    tim_fields:
+      not:
+        match_number: 0
+    type: int
+  lfm_cage_attempts_shallow:
+    tim_fields:
+      obj_tim.cage_level: 'S'
+    type: int
+  lfm_cage_attempts_deep:
+    tim_fields:
+      obj_tim.cage_level: 'D'
+    type: int
+  lfm_cage_attempts_all:
+    tim_fields:
+      not: 
+        obj_tim.cage_level: 'N'
+    type: int
+  lfm_cage_successes_shallow:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: True
+        - obj_tim.cage_level: 'N'
+        - obj_tim.cage_level: 'D'
+    type: int
+  lfm_cage_successes_deep:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: True
+        - obj_tim.cage_level: 'N'
+        - obj_tim.cage_level: 'S'
+    type: int
+  lfm_cage_successes_all:
+    tim_fields:
+      not:
+        obj_tim.cage_fail: True
+        obj_tim.cage_level: 'N'
+    type: int
+  lfm_parks:
+    tim_fields:
+      obj_tim.park: True
+    type: int
+  lfm_cage_fails_all:
+    tim_fields:
+      obj_tim.cage_fail: True
+    type: int
+  lfm_cage_fails_shallow:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: False
+        - obj_tim.cage_level: 'D'
+        - obj_tim.cage_level: 'N'
+    type: int
+  lfm_cage_fails_deep:
+    tim_fields:
+      not:
+        - obj_tim.cage_fail: False
+        - obj_tim.cage_level: 'S'
+        - obj_tim.cage_level: 'N'
+    type: int
+  lfm_position_zero_starts:
+    tim_fields:
+      obj_tim.start_position: '0'
+    type: int
+  lfm_position_one_starts:
+    tim_fields:
+      obj_tim.start_position: '1'
+    type: int
+  lfm_position_two_starts:
+    tim_fields:
+      obj_tim.start_position: '2'
+    type: int
+  lfm_position_three_starts:
+    tim_fields:
+      obj_tim.start_position: '3'
+    type: int
+  lfm_position_four_starts:
+    tim_fields:
+      obj_tim.start_position: '4'
+    type: int
+  lfm_position_five_starts:
+    tim_fields:
+      obj_tim.start_position: '5'
+    type: int
+  lfm_preloaded_starts:
+    tim_fields:
+      obj_tim.has_preload: True
+    type: int
+  lfm_preload_successes:
+    tim_fields:
+      obj_tim.scored_preload: True
+    type: int
+  lfm_matches_incap:
+    tim_fields:
+      not:
+        obj_tim.tele_incap: 0
+    type: int
+
+# Counts of occurrences in consolidated TIMs that can happen multiple times in a match
+#multi_counts:
+  # trap_successes:
+  #   tim_fields: [obj_tim.trap]
+  #   type: int
+  # trap_fails:
+  #   tim_fields: [obj_tim.failed_trap]
+  #   type: int
+  # trap_attempts:
+  #   tim_fields: [obj_tim.trap, obj_tim.failed_trap]
+  #   type: int
+  # lfm_trap_successes:
+  #   tim_fields: [obj_tim.trap]
+  #   type: int
+  # lfm_trap_fails:
+  #   tim_fields: [obj_tim.failed_trap]
+  #   type: int
+  # lfm_trap_attempts:
+  #   tim_fields: [obj_tim.trap, obj_tim.failed_trap]
+  #   type: int
+  # NOT APPLICABLE TO REEFSCAPE
+
+# Counts collected from Objective and Subjective Scouts 
+#special_counts: 
+  # climb_after_successes: 
+  #   tim_fields: 
+  #     - subj_tim.climb_after: True 
+  #     - obj_tim.climbed: True
+  #   type: int
+  # lfm_climb_after_successes:
+  #   tim_fields:
+  #     - subj_tim.climb_after: True
+  #     - obj_tim.climbed: True
+  #   type: int
+  # NOT APPLICABLE TO REEFSCAPE
+
+
+# Objective counts collected by Super Scouts
+#super_counts:
+  # matches_climb_after:
+  #   type: int
+  #   tim_fields: [subj_tim.climb_after]
+  # lfm_matches_climb_after:
+  #   type: int
+  #   tim_fields: [subj_tim.climb_after]
+  # NOT APPLICABLE TO REEFSCAPE
+
+# Objective counts collected by stand strategist
+ss_counts:
+  matches_played_defense:
+    type: int
+    tim_fields: [ss_tim.played_defense]
+  lfm_matches_played_defense:
+    type: int
+    tim_fields: [ss_tim.played_defense]
+  matches_played_against_defense:
+    type: int
+    tim_fields: [ss_tim.played_against_defense]
+  lfm_matches_played_against_defense:
+    type: int
+    tim_fields: [ss_tim.played_against_defense]
+  matches_with_broken_mechanism:
+    type: int
+    tim_fields: [ss_tim.broken_mechanism]
+  lfm_matches_with_broken_mechanism:
+    type: int
+    tim_fields: [ss_tim.broken_mechanism]
+
+# Maximum or minimum values in consolidated TIMs
+extrema:
+  auto_max_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L1]
+  auto_max_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L2]
+  auto_max_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L3]
+  auto_max_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L4]
+  auto_max_fail_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+  auto_max_fail_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+  auto_max_fail_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+  auto_max_fail_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+  auto_max_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_net]
+  auto_max_fail_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_net]
+  auto_max_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_processor]
+  auto_max_fail_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_processor]
+  auto_max_drop_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_drop_coral]
+  auto_max_drop_algae:
+    extrema_type:  max
+    type: int
+    tim_fields: [obj_tim.auto_drop_algae]
+  auto_max_intake_reef:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_reef]
+  auto_max_intake_station:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_station]
+  auto_max_intake_ground_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+  auto_max_intake_ground_algae:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+  auto_max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_intakes]
+  auto_max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_pieces]
+  auto_max_total_failed_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+  tele_max_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L1]
+  tele_max_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L2]
+  tele_max_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L3]
+  tele_max_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L4]
+  tele_max_fail_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+  tele_max_fail_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+  tele_max_fail_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+  tele_max_fail_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+  tele_max_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_net]
+  tele_max_fail_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_net]
+  tele_max_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_processor]
+  tele_max_fail_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_processor]
+  tele_max_drop_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_drop_coral]
+  tele_max_drop_algae:
+    extrema_type:  max
+    type: int
+    tim_fields: [obj_tim.tele_drop_algae]
+  tele_max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_pieces]
+  tele_max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_intakes]
+  tele_max_total_failed_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+  tele_max_intake_ground_coral:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: int
+  tele_max_intake_ground_algae:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: int
+  tele_max_intake_station:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_station]
+    type: int
+  tele_max_intake_reef:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: int
+  max_tele_incap:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_incap]
+  min_expected_cycle_time:
+    extrema_type: min
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  max_expected_cycle_time:
+    extrema_type: max
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  min_expected_cycles:
+    extrema_type: min
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  max_expected_cycles:
+    extrema_type: max
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_intakes]
+  max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_pieces]
+  endgame_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.endgame_total_points]
+  max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_points]
+  tele_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_points]
+  auto_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_points]
+  lfm_auto_max_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L1]
+  lfm_auto_max_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L2]
+  lfm_auto_max_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L3]
+  lfm_auto_max_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_coral_L4]
+  lfm_auto_max_fail_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L1]
+  lfm_auto_max_fail_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L2]
+  lfm_auto_max_fail_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L3]
+  lfm_auto_max_fail_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_coral_L4]
+  lfm_auto_max_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_net]
+  lfm_auto_max_fail_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_net]
+  lfm_auto_max_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_processor]
+  lfm_auto_max_fail_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_fail_processor]
+  lfm_auto_max_drop_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_drop_coral]
+  lfm_auto_max_drop_algae:
+    extrema_type:  max
+    type: int
+    tim_fields: [obj_tim.auto_drop_algae]
+  lfm_auto_max_intake_reef:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_reef]
+  lfm_auto_max_intake_station:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_station]
+  lfm_auto_max_intake_ground_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_ground_coral]
+  lfm_auto_max_intake_ground_algae:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_intake_ground_algae]
+  lfm_auto_max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_intakes]
+  lfm_auto_max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_pieces]
+  lfm_auto_max_total_failed_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_failed_pieces]
+  lfm_tele_max_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L1]
+  lfm_tele_max_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L2]
+  lfm_tele_max_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L3]
+  lfm_tele_max_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_coral_L4]
+  lfm_tele_max_fail_coral_L1:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L1]
+  lfm_tele_max_fail_coral_L2:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L2]
+  lfm_tele_max_fail_coral_L3:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L3]
+  lfm_tele_max_fail_coral_L4:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_coral_L4]
+  lfm_tele_max_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_net]
+  lfm_tele_max_fail_net:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_net]
+  lfm_tele_max_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_processor]
+  lfm_tele_max_fail_processor:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_fail_processor]
+  lfm_tele_max_drop_coral:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_drop_coral]
+  lfm_tele_max_drop_algae:
+    extrema_type:  max
+    type: int
+    tim_fields: [obj_tim.tele_drop_algae]
+  lfm_tele_max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_pieces]
+  lfm_tele_max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_intakes]
+  lfm_tele_max_total_failed_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_failed_pieces]
+  lfm_tele_max_intake_ground_coral:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_ground_coral]
+    type: int
+  lfm_tele_max_intake_ground_algae:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_ground_algae]
+    type: int
+  lfm_tele_max_intake_station:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_station]
+    type: int
+  lfm_tele_max_intake_reef:
+    extrema_type: max
+    tim_fields: [obj_tim.tele_intake_reef]
+    type: int
+  lfm_max_tele_incap:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_incap]
+  lfm_min_expected_cycle_time:
+    extrema_type: min
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  lfm_max_expected_cycle_time:
+    extrema_type: max
+    tim_fields: [obj_tim.expected_cycle_time]
+    type: float
+  lfm_max_expected_cycles:
+    extrema_type: max
+    tim_fields: [obj_tim.expected_cycles]
+    type: float
+  lfm_max_total_intakes:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_intakes]
+  lfm_max_total_pieces:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_pieces]
+  lfm_endgame_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.endgame_total_points]
+  lfm_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.total_points]
+  lfm_tele_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.tele_total_points]
+  lfm_auto_max_total_points:
+    extrema_type: max
+    type: int
+    tim_fields: [obj_tim.auto_total_points]
+
+# Most common values
+modes:
+  mode_start_position:
+    tim_fields: [obj_tim.start_position]
+    ignore: '0'
+    type: list
+  lfm_mode_start_position:
+    tim_fields: [obj_tim.start_position]
+    ignore: '0'
+    type: list
+  mode_cage_level:
+    tim_fields: [obj_tim.cage_level]
+    ignore: 'N'
+    type: list
+  lfm_mode_cage_level:
+    tim_fields: [obj_tim.cage_level]
+    ignore: 'N'
+    type: list
+
+success_rates:
+  auto_coral_L1_percent_success:
+    team_successes: [auto_avg_coral_L1]
+    team_attempts: [auto_avg_coral_L1, auto_avg_fail_coral_L1]
+    type: float
+  auto_coral_L2_percent_success:
+    team_successes: [auto_avg_coral_L2]
+    team_attempts: [auto_avg_coral_L2, auto_avg_fail_coral_L2]
+    type: float
+  auto_coral_L3_percent_success:
+    team_successes: [auto_avg_coral_L3]
+    team_attempts: [auto_avg_coral_L3, auto_avg_fail_coral_L3]
+    type: float
+  auto_coral_L4_percent_success:
+    team_successes: [auto_avg_coral_L4]
+    team_attempts: [auto_avg_coral_L4, auto_avg_fail_coral_L4]
+    type: float
+  auto_net_percent_success:
+    team_successes: [auto_avg_net]
+    team_attempts: [auto_avg_net, auto_avg_fail_net]
+    type: float
+  auto_processor_percent_success:
+    team_successes: [auto_avg_processor]
+    team_attempts: [auto_avg_processor, auto_avg_fail_processor]
+    type: float
+  tele_coral_L1_percent_success:
+    team_successes: [tele_avg_coral_L1]
+    team_attempts: [tele_avg_coral_L1, tele_avg_fail_coral_L1]
+    type: float
+  tele_coral_L2_percent_success:
+    team_successes: [tele_avg_coral_L2]
+    team_attempts: [tele_avg_coral_L2, tele_avg_fail_coral_L2]
+    type: float
+  tele_coral_L3_percent_success:
+    team_successes: [tele_avg_coral_L2]
+    team_attempts: [tele_avg_coral_L2, tele_avg_fail_coral_L2]
+    type: float
+  tele_coral_L4_percent_success:
+    team_successes: [tele_avg_coral_L2]
+    team_attempts: [tele_avg_coral_L2, tele_avg_fail_coral_L2]
+    type: float
+  tele_net_percent_success:
+    team_successes: [tele_avg_net]
+    team_attempts: [tele_avg_net, tele_avg_fail_net]
+    type: float
+  tele_processor_percent_success:
+    team_successes: [tele_avg_processor]
+    team_attempts: [tele_avg_processor, tele_avg_fail_processor]
+    type: float
+  cage_percent_success_all:
+    team_successes: [cage_successes_all]
+    team_attempts: [cage_attempts_all]
+    type: float
+  cage_percent_success_shallow:
+    team_successes: [cage_successes_shallow]
+    team_attempts: [cage_attempts_shallow]
+    type: float
+  cage_percent_success_deep:
+    team_successes: [cage_successes_deep]
+    team_attempts: [cage_attempts_deep]
+    type: float
+  park_percent:
+    team_successes: [parks]
+    team_attempts: [matches_played]
+    type: float
+  auto_preload_percent_success:
+    team_successes: [preload_successes]
+    team_attempts: [preloaded_starts]
+    type: float
+  lfm_auto_coral_L1_percent_success:
+    team_successes: [auto_avg_coral_L1]
+    team_attempts: [auto_avg_coral_L1, auto_avg_fail_coral_L1]
+    type: float
+  lfm_auto_coral_L2_percent_success:
+    team_successes: [auto_avg_coral_L2]
+    team_attempts: [auto_avg_coral_L2, auto_avg_fail_coral_L2]
+    type: float
+  lfm_auto_coral_L3_percent_success:
+    team_successes: [auto_avg_coral_L3]
+    team_attempts: [auto_avg_coral_L3, auto_avg_fail_coral_L3]
+    type: float
+  lfm_auto_coral_L4_percent_success:
+    team_successes: [auto_avg_coral_L4]
+    team_attempts: [auto_avg_coral_L4, auto_avg_fail_coral_L4]
+    type: float
+  lfm_auto_net_percent_success:
+    team_successes: [auto_avg_net]
+    team_attempts: [auto_avg_net, auto_avg_fail_net]
+    type: float
+  lfm_auto_processor_percent_success:
+    team_successes: [auto_avg_processor]
+    team_attempts: [auto_avg_processor, auto_avg_fail_processor]
+    type: float
+  lfm_tele_coral_L1_percent_success:
+    team_successes: [tele_avg_coral_L1]
+    team_attempts: [tele_avg_coral_L1, tele_avg_fail_coral_L1]
+    type: float
+  lfm_tele_coral_L2_percent_success:
+    team_successes: [tele_avg_coral_L2]
+    team_attempts: [tele_avg_coral_L2, tele_avg_fail_coral_L2]
+    type: float
+  lfm_tele_coral_L3_percent_success:
+    team_successes: [tele_avg_coral_L3]
+    team_attempts: [tele_avg_coral_L3, tele_avg_fail_coral_L3]
+    type: float
+  lfm_tele_coral_L4_percent_success:
+    team_successes: [tele_avg_coral_L4]
+    team_attempts: [tele_avg_coral_L4, tele_avg_fail_coral_L4]
+    type: float
+  lfm_tele_net_percent_success:
+    team_successes: [tele_avg_net]
+    team_attempts: [tele_avg_net, tele_avg_fail_net]
+    type: float
+  lfm_tele_processor_percent_success:
+    team_successes: [tele_avg_processor]
+    team_attempts: [tele_avg_processor, tele_avg_fail_processor]
+    type: float
+  lfm_cage_percent_success_all:
+    team_successes: [cage_successes_all]
+    team_attempts: [cage_attempts_all]
+    type: float
+  lfm_cage_percent_success_shallow:
+    team_successes: [cage_successes_shallow]
+    team_attempts: [cage_attempts_shallow]
+    type: float
+  lfm_cage_percent_success_deep:
+    team_successes: [cage_successes_deep]
+    team_attempts: [cage_attempts_deep]
+    type: float
+  lfm_park_percent:
+    team_successes: [parks]
+    team_attempts: [matches_played]
+    type: float
+  lfm_auto_preload_percent_success:
+    team_successes: [preload_successes]
+    team_attempts: [preloaded_starts]
+    type: float
+
+# Calculates all the medians
+medians:
+  median_nonzero_tele_incap: 
+    tim_fields: [obj_tim.tele_incap]
+    ignore: 0
+    type: float
+  lfm_median_nonzero_tele_incap:
+    tim_fields: [obj_tim.tele_incap]
+    ignore: 0
+    type: float
+  median_nonzero_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    ignore: 135
+    type: float
+  lfm_median_nonzero_expected_cycle_time:
+    tim_fields: [obj_tim.expected_cycle_time]
+    ignore: 135
+    type: float
+  median_nonzero_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    ignore: 0
+    type: float
+  lfm_median_nonzero_expected_cycles:
+    tim_fields: [obj_tim.expected_cycles]
+    ignore: 0
+    type: float
+
+# Calculates a sum of fields multiplied by point values
+sums:
+  total_incap_time:
+    type: int
+  lfm_total_incap_time:
+    type: int
+#  tele_total_points:
+#    tele_avg_coral_L1: 2
+#    tele_avg_coral_L2: 3
+#    tele_avg_coral_L3: 4
+#    tele_avg_coral_L4: 5
+#    tele_avg_net: 4
+#    tele_avg_processor: 6
+#    type: int
+

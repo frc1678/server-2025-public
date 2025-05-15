@@ -1,0 +1,74 @@
+# Used for Pit Collection data storage by Pit Scout and for storage of this data in MongoDB
+#
+# Example:
+#
+# {
+#     "team_number": 2923,
+#     "drivetrain": 1,
+#     "weight": 115,
+#     "algae_score_mech": 2,
+#     "algae_intake_mech": 2,
+#     "max_reef_level": 3,
+#     "can_leave": True,
+#     "has_processor_mech": True,
+# }
+#
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+# Stores data type/structure
+schema:
+  team_number:
+    type: str
+  drivetrain:
+    type: Enum[str]
+  weight:
+    type: str
+  algae_score_mech: 
+    type: Enum[str]
+  algae_intake_mech:
+    type: Enum[str]
+  reef_score_ability: 
+    type: str
+  can_leave:
+    type: str
+  has_processor_mech: 
+    type: str
+  coral_intake_mech:
+    type: Enum[str]
+  max_climb:
+    type: Enum[str]
+
+enums:
+  drivetrain:
+    no_data: 0
+    tank: 1
+    mecanum: 2
+    swerve: 3
+    other: 4
+  algae_score_mech:
+    no_data: 0
+    none: 1
+    processor: 2
+    net: 3
+  algae_intake_mech:
+    no_data: 0
+    none: 1
+    reef: 2
+    ground: 3
+    both: 4
+  coral_intake_mech:
+    no_data: 0
+    none: 1
+    station: 2
+    ground: 3
+    both: 4
+  max_climb:
+    no_data: 0
+    none: 1
+    shallow: 2
+    deep: 3

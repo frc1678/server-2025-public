@@ -1,0 +1,529 @@
+# Used for calculating objective team in match data in Server
+#
+# Example:
+#
+#  {
+#     "confidence_rating": 7,
+#     "team_number": "254",
+#     "match_number": 3,
+#     "alliance_color_is_red": true,
+#     "leave": true,
+#     "deep": true,
+#     "shallow": false,
+#     "park": false,
+#     "auto_net": 0,
+#     "auto_processor": 1,
+#     "auto_coral_L1": 1,
+#     "auto_coral_L2": 0,
+#     "auto_coral_L3": 0,
+#     "auto_coral_L4": 1,
+#     "auto_fail_net": 0,
+#     "auto_fail_processor": 1,
+#     "auto_fail_coral_L1": 1,
+#     "auto_fail_coral_L2": 0,
+#     "auto_fail_coral_L3": 0,
+#     "auto_fail_coral_L4": 1,
+#     "auto_intake_ground_coral": 0,
+#     "auto_intake_ground_algae": 2,
+#     "auto_intake_station": 1,
+#     "auto_intake_reef": 0,
+#     "tele_net": 1,
+#     "tele_processor": 0,
+#     "tele_coral_L1": 0,
+#     "tele_coral_L2": 1,
+#     "tele_coral_L3": 1,
+#     "tele_coral_L4": 0,
+#     "tele_fail_net": 1,
+#     "tele_fail_processor": 0,
+#     "tele_fail_coral_L1": 0,
+#     "tele_fail_coral_L2": 1,
+#     "tele_fail_coral_L3": 1,
+#     "tele_fail_coral_L4": 0,
+#     "tele_intake_station": 1,
+#     "tele_intake_ground_coral": 1,
+#     "tele_intake_ground_algae": 1,
+#     "tele_intake_reef": 1,
+#     "auto_total_intakes_ground": 2,
+#     "auto_total_intakes": 3,
+#     "tele_total_intakes_ground": 2,
+#     "tele_total_intakes": 4,
+#     "auto_total_pieces": 4,
+#     "tele_total_pieces": 3,
+#     "total_pieces": 7,
+#     "total_intakes": 7,
+#     "tele_incap": 73,
+#     "auto_total_points": 7,
+#     "tele_total_points": 5,
+#     "endgame_total_points": 4,
+#     "total_points": 5,
+#     "auto_drop_coral": 0,
+#     "auto_drop_algae": 0,
+#     "tele_drop_coral": 0,
+#     "tele_drop_algae": 0,
+#     "median_cycle_time": 15,
+#     "time_from_station_to_reef": 6,
+#     "time_from_ground_to_reef": 8,
+#     "time_from_ground_to_net": 8,
+#     "time_from_ground_to_processor": 6,
+#     "time_from_reef_to_net": 4,
+#     "time_from_reef_to_processor": 8,
+#     "cage_level": "S"
+#     "cage_fail": false
+#     "start_position": "2",
+#     "has_preload": true,
+#     "expected_cycle_time": 9.5,
+#     "expected_cycles": 20,
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+# Data that doesn't fit into other categorical calculations
+data:
+  confidence_rating:
+    type: int
+  team_number:
+    type: str
+  match_number:
+    type: int
+  alliance_color_is_red:
+    type: bool
+  scored_preload:
+    type: bool
+  leave:
+    type: bool
+  # used for endgame points
+  deep:
+    type: bool
+  shallow:
+    type: bool
+
+# Calculations built around counting timeline actions with certain key:value pairs
+timeline_counts:
+  auto_net:
+    type: int
+    action_type: auto_net
+    in_teleop: false
+  auto_processor:
+    type: int
+    action_type: auto_processor
+    in_teleop: false
+  auto_coral_L1:
+    type: int
+    action_type: auto_coral_L1
+    in_teleop: false
+  auto_coral_L2:
+    type: int
+    action_type: auto_coral_L2
+    in_teleop: false
+  auto_coral_L3:
+    type: int
+    action_type: auto_coral_L3
+    in_teleop: false
+  auto_coral_L4:
+    type: int
+    action_type: auto_coral_L4
+    in_teleop: false
+  auto_fail_net:
+    type: int
+    action_type: auto_fail_net
+    in_teleop: false
+  auto_fail_processor:
+    type: int
+    action_type: auto_fail_processor
+    in_teleop: false
+  auto_fail_coral_L1:
+    type: int
+    action_type: auto_fail_coral_L1
+    in_teleop: false
+  auto_fail_coral_L2:
+    type: int
+    action_type: auto_fail_coral_L2
+    in_teleop: false
+  auto_fail_coral_L3:
+    type: int
+    action_type: auto_fail_coral_L3
+    in_teleop: false
+  auto_fail_coral_L4:
+    type: int
+    action_type: auto_fail_coral_L4
+    in_teleop: false
+  auto_intake_ground_coral:
+    type: int
+    action_type: auto_intake_ground_coral
+    in_teleop: false
+  auto_intake_ground_algae:
+    type: int
+    action_type: auto_intake_ground_algae
+    in_teleop: false
+  auto_intake_reef:
+    type: int
+    action_type: auto_intake_reef
+    in_teleop: false
+  auto_intake_station:
+    type: int
+    action_type: auto_intake_station
+    in_teleop: false
+  auto_drop_coral:
+    type: int
+    action_type: auto_drop_coral
+    in_teleop: false
+  auto_drop_algae:
+    type: int
+    action_type: auto_drop_algae
+    in_teleop: false
+  tele_net:
+    type: int
+    action_type: tele_net
+    in_teleop: true
+  tele_processor:
+    type: int
+    action_type: tele_processor
+    in_teleop: true
+  tele_coral_L1:
+    type: int
+    action_type: tele_coral_L1
+    in_teleop: true
+  tele_coral_L2:
+    type: int
+    action_type: tele_coral_L2
+    in_teleop: true
+  tele_coral_L3:
+    type: int
+    action_type: tele_coral_L3
+    in_teleop: true
+  tele_coral_L4:
+    type: int
+    action_type: tele_coral_L4
+    in_teleop: true
+  tele_fail_net:
+    type: int
+    action_type: tele_fail_net
+    in_teleop: true
+  tele_fail_processor:
+    type: int
+    action_type: tele_fail_processor
+    in_teleop: true
+  tele_fail_coral_L1:
+    type: int
+    action_type: tele_fail_coral_L1
+    in_teleop: true
+  tele_fail_coral_L2:
+    type: int
+    action_type: tele_fail_coral_L2
+    in_teleop: true
+  tele_fail_coral_L3:
+    type: int
+    action_type: tele_fail_coral_L3
+    in_teleop: true
+  tele_fail_coral_L4:
+    type: int
+    action_type: tele_fail_coral_L4
+    in_teleop: true
+  tele_intake_ground_coral:
+    type: int
+    action_type: tele_intake_ground_coral
+    in_teleop: true
+  tele_intake_ground_algae:
+    type: int
+    action_type: tele_intake_ground_algae
+    in_teleop: true
+  tele_intake_station:
+    type: int
+    action_type: tele_intake_station
+    in_teleop: true
+  tele_intake_reef:
+    type: int
+    action_type: tele_intake_reef
+    in_teleop: true
+  tele_intake_poach:
+    type: int
+    action_type: tele_intake_poach
+    in_teleop: true
+  tele_drop_coral:
+    type: int
+    action_type: tele_drop_coral
+    in_teleop: true
+  tele_drop_algae:
+    type: int
+    action_type: tele_drop_algae
+    in_teleop: true
+
+
+# Calculations made by adding up other counts
+aggregates:
+  auto_total_intakes: 
+    type: int
+    counts: [auto_intake_ground_coral, auto_intake_ground_algae, auto_intake_reef, auto_intake_station]
+  auto_intakes_ground:
+    type: int
+    counts: [auto_intake_ground_coral, auto_intake_ground_algae]
+  auto_total_pieces: 
+    type: int
+    counts: [auto_net, auto_processor, auto_coral_L1, auto_coral_L2, auto_coral_L3, auto_coral_L4]
+  auto_total_failed_pieces:
+    type: int
+    counts: [auto_fail_net, auto_fail_processor, auto_fail_coral_L1, auto_fail_coral_L2, auto_fail_coral_L3, auto_fail_coral_L4]
+  tele_total_intakes: 
+    type: int
+    counts: [tele_intake_ground_coral, tele_intake_ground_algae, tele_intake_station, tele_intake_reef, tele_intake_poach]
+  total_intakes: 
+    type: int
+    counts: [auto_intake_ground_coral, auto_intake_ground_algae, auto_intake_reef, auto_intake_station, tele_intake_ground_coral, tele_intake_ground_algae, tele_intake_station, tele_intake_reef, tele_intake_poach]
+
+# Aggregates that are calculated before consolidation
+pre_consolidated_aggregates:
+  tele_total_pieces:
+    type: int
+    counts: [tele_net, tele_processor, tele_coral_L1, tele_coral_L2, tele_coral_L3, tele_coral_L4]
+  tele_total_failed_pieces:
+    type: int
+    counts: [tele_fail_net, tele_fail_processor, tele_fail_coral_L1, tele_fail_coral_L2, tele_fail_coral_L3, tele_fail_coral_L4]
+  total_pieces: 
+    type: int
+    counts: [auto_net, auto_processor, auto_coral_L1, auto_coral_L2, auto_coral_L3, auto_coral_L4, tele_net, tele_processor, tele_coral_L1, tele_coral_L2, tele_coral_L3, tele_coral_L4]
+  total_failed_pieces:
+    type: int
+    counts: [auto_fail_net, auto_fail_processor, auto_fail_coral_L1, auto_fail_coral_L2, auto_fail_coral_L3, auto_fail_coral_L4, tele_fail_net, tele_fail_processor, tele_fail_coral_L1, tele_fail_coral_L2, tele_fail_coral_L3, tele_fail_coral_L4]
+
+#Stores scoring actions and their point values
+#total_points does not include endgame for now
+point_calculations:
+  auto_total_points:
+   type: int
+   counts: {leave: 3, auto_net: 4, auto_processor: 6, auto_coral_L1: 3, auto_coral_L2: 4, auto_coral_L3: 6, auto_coral_L4: 7}
+  tele_total_points:
+    type: int
+    counts: {tele_net: 4, tele_processor: 6, tele_coral_L1: 2, tele_coral_L2: 3, tele_coral_L3: 4, tele_coral_L4: 5}
+  endgame_total_points:
+    type: int
+    counts: {deep: 12, shallow: 6, parked: 2}
+  total_points:
+    type: int
+    counts: {auto_net: 4, auto_processor: 6, auto_coral_L1: 3, auto_coral_L2: 4, auto_coral_L3: 6, auto_coral_L4: 7, tele_net: 4, tele_processor: 6, tele_coral_L1: 2, tele_coral_L2: 3, tele_coral_L3: 4, tele_coral_L4: 5, deep: 12, shallow: 6, parked: 2}
+
+# Calculations built around measuring the time between two timeline actions.
+# First item in each list is the start item key:value pair requirements, second item is the end item.
+timeline_cycle_time:
+  tele_incap:
+    type: int
+    start_action: start_incap
+    end_action: end_incap
+    minimum_time: 8
+  median_cycle_time:
+    type: int
+    start_action: score
+    end_action: score
+    minimum_time: 1
+
+# Calculations built to measure either the expected cycle time or the expected number of cycles in a match
+# The calc field differentiates cycles from cycle times ("time" for cycle time, "num" for cycles)
+# The ignore_shot_out_of_auto field makes sure that the cycle calcs ignore a teleop shot straight out of auto (no intake)
+calculate_expected_fields:
+  expected_cycle_time:
+    type: float
+    calc: time
+    ignore_shot_out_of_auto: True
+    score_actions: [tele_net, tele_processor, tele_coral_L1, tele_coral_L2, tele_coral_L3, tele_coral_L4]
+  expected_cycles:
+    type: float
+    calc: num
+    ignore_shot_out_of_auto: True
+    score_actions: [tele_net, tele_processor, tele_coral_L1, tele_coral_L2, tele_coral_L3, tele_coral_L4]
+
+
+intake_weights:
+    tele_intake_ground:
+      normal: 1
+      type: float
+    tele_intake_reef:
+      normal: 1
+      type: float
+    tele_intake_station:
+      normal: 1
+      type: float
+    tele_intake_poach:
+      normal: 1
+      type: float
+    tele_drop_algae:
+      normal: 1
+      type: float
+      
+
+# Robot actions which are one out of a dict of possible actions
+# Dict items should be ordered, values are shortened string from qr
+categorical_actions:
+  cage_level:
+    list: ["D", "S", "N"]
+    type: str
+  cage_fail:
+    list: [True, False]
+    type: bool
+  start_position:
+    list: ["0", "1", "2", "3", "4", "5"]
+    type: str
+  has_preload:
+    list: [True, False]
+    type: bool
+  park:
+    list: [True, False]
+    type: bool
+
+--fail_actions:
+  auto_coral_L1:
+    name: auto_fail_coral_L1
+    type: str
+  auto_coral_L2:
+    name: auto_fail_coral_L2
+    type: str
+  auto_coral_L3:
+    name: auto_fail_coral_L3
+    type: str
+  auto_coral_L4:
+    name: auto_fail_coral_L4
+    type: str
+  auto_net:
+    name: auto_fail_net
+    type: str
+  auto_processor:
+    name: auto_fail_processor
+    type: str
+  tele_coral_L1:
+    name: tele_fail_coral_L1
+    type: str
+  tele_coral_L2:
+    name: tele_fail_coral_L2
+    type: str
+  tele_coral_L3:
+    name: tele_fail_coral_L3
+    type: str
+  tele_coral_L4:
+    name: tele_fail_coral_L4
+    type: str
+  tele_net:
+    name: tele_fail_net
+    type: str
+  tele_processor:
+    name: tele_fail_processor
+    type: str
+    
+--merge_actions:
+  auto_coral_L1:
+    names: [
+      auto_score_F1_L1, 
+      auto_score_F2_L1, 
+      auto_score_F3_L1, 
+      auto_score_F4_L1, 
+      auto_score_F5_L1, 
+      auto_score_F6_L1
+    ]
+    type: str
+  auto_coral_L2:
+    names: [
+      auto_score_F1_L2,
+      auto_score_F2_L2,
+      auto_score_F3_L2,
+      auto_score_F4_L2,
+      auto_score_F5_L2,
+      auto_score_F6_L2
+    ]
+    type: str
+  auto_coral_L3:
+    names: [
+      auto_score_F1_L3,
+      auto_score_F2_L3,
+      auto_score_F3_L3,
+      auto_score_F4_L3,
+      auto_score_F5_L3,
+      auto_score_F6_L3
+    ]
+    type: str
+  auto_coral_L4:
+    names: [
+      auto_score_F1_L4,
+      auto_score_F2_L4,
+      auto_score_F3_L4,
+      auto_score_F4_L4,
+      auto_score_F5_L4,
+      auto_score_F6_L4
+    ]
+    type: str
+  auto_fail_coral_L1:
+    names: [
+      auto_fail_score_F1_L1, 
+      auto_fail_score_F2_L1, 
+      auto_fail_score_F3_L1, 
+      auto_fail_score_F4_L1, 
+      auto_fail_score_F5_L1, 
+      auto_fail_score_F6_L1
+    ]
+    type: str
+  auto_fail_coral_L2:
+    names: [
+      auto_fail_score_F1_L2,
+      auto_fail_score_F2_L2,
+      auto_fail_score_F3_L2,
+      auto_fail_score_F4_L2,
+      auto_fail_score_F5_L2,
+      auto_fail_score_F6_L2
+    ]
+    type: str
+  auto_fail_coral_L3:
+    names: [
+      auto_fail_score_F1_L3,
+      auto_fail_score_F2_L3,
+      auto_fail_score_F3_L3,
+      auto_fail_score_F4_L3,
+      auto_fail_score_F5_L3,
+      auto_fail_score_F6_L3
+    ]
+    type: str
+  auto_fail_coral_L4:
+    names: [
+      auto_fail_score_F1_L4,
+      auto_fail_score_F2_L4,
+      auto_fail_score_F3_L4,
+      auto_fail_score_F4_L4,
+      auto_fail_score_F5_L4,
+      auto_fail_score_F6_L4
+    ]
+    type: str
+  auto_intake_station:
+    names: [
+      auto_intake_station_1,
+      auto_intake_station_2
+    ]
+    type: str
+  auto_intake_ground_coral:
+    names: [
+      auto_intake_ground_1_coral,
+      auto_intake_ground_2_coral,
+      auto_intake_mark_1_coral,
+      auto_intake_mark_2_coral,
+      auto_intake_mark_3_coral
+    ]
+    type: str
+  auto_intake_ground_algae:
+    names: [
+      auto_intake_ground_1_algae,
+      auto_intake_ground_2_algae,
+      auto_intake_mark_1_algae,
+      auto_intake_mark_2_algae,
+      auto_intake_mark_3_algae
+    ]
+    type: str
+  auto_intake_reef:
+    names: [
+      auto_intake_reef_F1,
+      auto_intake_reef_F2,
+      auto_intake_reef_F3,
+      auto_intake_reef_F4,
+      auto_intake_reef_F5,
+      auto_intake_reef_F6
+    ]
+    type: str

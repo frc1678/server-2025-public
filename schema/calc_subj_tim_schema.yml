@@ -1,0 +1,40 @@
+# Used for calculating subjective tim data in server
+#
+# Example: 
+#
+# { 
+#     "match_number": 1,
+#     "team_number": "118",
+#     "died": False,
+#     "can_cross_barge": True,
+#     "hp_from_team": True, 
+#     "hp_team_number": "118",
+#     "was_tippy": True, 
+# }
+#
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# Stores fields that will be added to database but do not require calculations
+data:
+  team_number:
+    type: str
+
+# Subjective actions that a robot can perform in a match but is not quantitative data 
+subjective_data:
+  died:
+    type: bool  
+  can_cross_barge: 
+    type: bool
+  hp_from_team: 
+    type: bool 
+  hp_team_number: 
+    type: str
+  was_tippy: 
+    type: bool
+  time_left_to_climb:
+    type: int

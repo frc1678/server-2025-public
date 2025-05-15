@@ -1,0 +1,186 @@
+# Used for calculating auto path-in-match data in server
+
+# Example:
+#
+# {
+#     "intake_position_1": intake_reef_1,
+#     "intake_position_2": mark_2,
+#     "intake_position_3": ground_2,
+#     "intake_position_4": intake_reef_3,
+#     "intake_position_5": mark_3,
+#     "intake_position_6": none,
+#     "intake_position_7": none,
+#     "intake_position_8": none,
+#     "score_1": reef_F4_L1,
+#     "score_2": reef_F4_L1,
+#     "score_3": reef_F6_L2,  
+#     "score_4": reef_F2_L4,  
+#     "score_5": reef_F1_L1,  
+#     "score_6": reef_F5_L3,  
+#     "score_7": none,  
+#     "score_8": none,    
+# }
+#
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# Data that doesn't fit into other categorical calculations
+data:
+  team_number:
+    type: str
+  match_number:
+    type: int
+  is_sus:
+    type: bool
+  is_compatible:
+    type: bool
+
+# Data pulled directly from other collections
+tim_fields:
+  obj_tim.start_position:
+    type: str
+  obj_tim.has_preload:
+    type: bool
+  tba_tim.leave:
+    type: bool
+
+# Data calculated from the timeline
+--timeline_fields:
+  intake_position:
+    valid_actions: {
+      "auto_intake_ground_1_coral": "ground_1_coral",
+      "auto_intake_ground_1_algae": "ground_1_algae", 
+      "auto_intake_ground_2_coral": "ground_2_coral",
+      "auto_intake_ground_2_algae": "ground_2_algae",
+      "auto_intake_mark_1_coral": "mark_1_coral",
+      "auto_intake_mark_1_algae": "mark_1_algae", 
+      "auto_intake_mark_2_coral": "mark_2_coral",
+      "auto_intake_mark_2_algae": "mark_2_algae", 
+      "auto_intake_mark_3_coral": "mark_3_coral",
+      "auto_intake_mark_3_algae": "mark_3_algae", 
+      "auto_intake_reef_F1": "intake_reef_1", 
+      "auto_intake_reef_F2": "intake_reef_2", 
+      "auto_intake_reef_F3": "intake_reef_3",
+      "auto_intake_reef_F4": "intake_reef_4",
+      "auto_intake_reef_F5": "intake_reef_5",
+      "auto_intake_reef_F6": "intake_reef_6",
+      "auto_intake_station_1": "station_1",
+      "auto_intake_station_2": "station_2",
+    }
+    max_count: 12
+  score:
+    valid_actions: {
+      "auto_drop_algae": "drop_algae",
+      "auto_drop_coral": "drop_coral",
+      "auto_net": "net",
+      "auto_processor": "processor",
+      "auto_fail_net": "fail_net",
+      "auto_fail_processor": "fail_processor",
+      "auto_score_F1_L1": "reef_F1_L1",
+      "auto_score_F1_L2": "reef_F1_L2",
+      "auto_score_F1_L3": "reef_F1_L3",
+      "auto_score_F1_L4": "reef_F1_L4",
+      "auto_score_F2_L1": "reef_F2_L1",
+      "auto_score_F2_L2": "reef_F2_L2",
+      "auto_score_F2_L3": "reef_F2_L3",
+      "auto_score_F2_L4": "reef_F2_L4",
+      "auto_score_F3_L1": "reef_F3_L1",
+      "auto_score_F3_L2": "reef_F3_L2",
+      "auto_score_F3_L3": "reef_F3_L3",
+      "auto_score_F3_L4": "reef_F3_L4",
+      "auto_score_F4_L1": "reef_F4_L1",
+      "auto_score_F4_L2": "reef_F4_L2",
+      "auto_score_F4_L3": "reef_F4_L3",
+      "auto_score_F4_L4": "reef_F4_L4",
+      "auto_score_F5_L1": "reef_F5_L1",
+      "auto_score_F5_L2": "reef_F5_L2",
+      "auto_score_F5_L3": "reef_F5_L3",
+      "auto_score_F5_L4": "reef_F5_L4",
+      "auto_score_F6_L1": "reef_F6_L1",
+      "auto_score_F6_L2": "reef_F6_L2",
+      "auto_score_F6_L3": "reef_F6_L3",
+      "auto_score_F6_L4": "reef_F6_L4",
+      "auto_fail_score_F1_L1": "fail_reef_F1_L1",
+      "auto_fail_score_F1_L2": "fail_reef_F1_L2",
+      "auto_fail_score_F1_L3": "fail_reef_F1_L3",
+      "auto_fail_score_F1_L4": "fail_reef_F1_L4",
+      "auto_fail_score_F2_L1": "fail_reef_F2_L1",
+      "auto_fail_score_F2_L2": "fail_reef_F2_L2",
+      "auto_fail_score_F2_L3": "fail_reef_F2_L3",
+      "auto_fail_score_F2_L4": "fail_reef_F2_L4",
+      "auto_fail_score_F3_L1": "fail_reef_F3_L1",
+      "auto_fail_score_F3_L2": "fail_reef_F3_L2",
+      "auto_fail_score_F3_L3": "fail_reef_F3_L3",
+      "auto_fail_score_F3_L4": "fail_reef_F3_L4",
+      "auto_fail_score_F4_L1": "fail_reef_F4_L1",
+      "auto_fail_score_F4_L2": "fail_reef_F4_L2",
+      "auto_fail_score_F4_L3": "fail_reef_F4_L3",
+      "auto_fail_score_F4_L4": "fail_reef_F4_L4",
+      "auto_fail_score_F5_L1": "fail_reef_F5_L1",
+      "auto_fail_score_F5_L2": "fail_reef_F5_L2",
+      "auto_fail_score_F5_L3": "fail_reef_F5_L3",
+      "auto_fail_score_F5_L4": "fail_reef_F5_L4",
+      "auto_fail_score_F6_L1": "fail_reef_F6_L1",
+      "auto_fail_score_F6_L2": "fail_reef_F6_L2",
+      "auto_fail_score_F6_L3": "fail_reef_F6_L3",
+      "auto_fail_score_F6_L4": "fail_reef_F6_L4",
+    }
+    max_count: 13
+
+# Update this for schema typing, it has no effect on auto_pim, but database.py needs it
+# There should be a field for each possible timeline field, up to max_count
+timeline_fields_typing:
+  intake_position_1:
+    type: str
+  intake_position_2:
+    type: str
+  intake_position_3:
+    type: str
+  intake_position_4:
+    type: str
+  intake_position_5:
+    type: str
+  intake_position_6:
+    type: str
+  intake_position_7:
+    type: str
+  intake_position_8:
+    type: str
+  intake_position_9:
+    type: str
+  intake_position_10:
+    type: str
+  intake_position_11:
+    type: str
+  intake_position_12:
+    type: str
+  score_1:
+    type: str
+  score_2:
+    type: str
+  score_3:
+    type: str
+  score_4:
+    type: str
+  score_5:
+    type: str
+  score_6:
+    type: str
+  score_7:
+    type: str
+  score_8:
+    type: str
+  score_9:
+    type: str
+  score_10:
+    type: str
+  score_11:
+    type: str
+  score_12:
+    type: str
+  score_13:
+    type: str

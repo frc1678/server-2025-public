@@ -1,0 +1,117 @@
+# Schema for scout precision rankings
+#
+# Example:
+#
+# {
+#     "scout_name": "Jim",
+#     "scout_precision": 5.0059
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# TODO: Add collection information to data fields once schema is implemented
+# Non-calculated data
+data:
+  scout_name:
+    type: str
+
+# Calculated data
+calculations:
+  scout_precision:
+    type: float
+    requires: sim_precision.sim_precision
+  auto_reef_precision:
+    type: float
+    requires: sim_precision.auto_reef_precision
+  auto_L1_precision:
+    type: float
+    requires: sim_precision.auto_L1_precision
+  auto_L2_precision:
+    type: float
+    requires: sim_precision.auto_L2_precision
+  auto_F1_L2_precision:
+    type: float
+    requires: sim_precision.auto_F1_L2_precision
+  auto_F2_L2_precision:
+    type: float
+    requires: sim_precision.auto_F2_L2_precision
+  auto_F3_L2_precision:
+    type: float
+    requires: sim_precision.auto_F3_L2_precision
+  auto_F4_L2_precision:
+    type: float
+    requires: sim_precision.auto_F4_L2_precision
+  auto_F5_L2_precision:
+    type: float
+    requires: sim_precision.auto_F5_L2_precision
+  auto_F6_L2_precision:
+    type: float
+    requires: sim_precision.auto_F6_L2_precision
+  auto_L3_precision:
+    type: float
+    requires: sim_precision.auto_L3_precision
+  auto_F1_L3_precision:
+    type: float
+    requires: sim_precision.auto_F1_L3_precision
+  auto_F2_L3_precision:
+    type: float
+    requires: sim_precision.auto_F2_L3_precision
+  auto_F3_L3_precision:
+    type: float
+    requires: sim_precision.auto_F3_L3_precision
+  auto_F4_L3_precision:
+    type: float
+    requires: sim_precision.auto_F4_L3_precision
+  auto_F5_L3_precision:
+    type: float
+    requires: sim_precision.auto_F5_L3_precision
+  auto_F6_L3_precision:
+    type: float
+    requires: sim_precision.auto_F6_L3_precision
+  auto_L4_precision:
+    type: float
+    requires: sim_precision.auto_L4_precision
+  auto_F1_L4_precision:
+    type: float
+    requires: sim_precision.auto_F1_L4_precision
+  auto_F2_L4_precision:
+    type: float
+    requires: sim_precision.auto_F2_L4_precision
+  auto_F3_L4_precision:
+    type: float
+    requires: sim_precision.auto_F3_L4_precision
+  auto_F4_L4_precision:
+    type: float
+    requires: sim_precision.auto_F4_L4_precision
+  auto_F5_L4_precision:
+    type: float
+    requires: sim_precision.auto_F5_L4_precision
+  auto_F6_L4_precision:
+    type: float
+    requires: sim_precision.auto_F6_L4_precision
+  auto_processor_precision:
+    type: float
+    requires: sim_precision.auto_processor_precision
+  tele_reef_precision:
+    type: float
+    requires: sim_precision.tele_reef_precision
+  algae_precision:
+    type: float
+    requires: sim_precision.algae_precision
+  net_precision:
+    type: float
+    requires: sim_precision.net_precision
+  processor_precision:
+    type: float
+    requires: sim_precision.processor_precision
+
+ranks:
+  scout_precision_rank:
+    type: int
+    requires: sim_precision.scout_precision

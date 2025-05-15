@@ -1,0 +1,75 @@
+# Used for calculating subjective team data in server
+#
+# Example:
+#
+# {
+#     "team_number": "777",
+#     "died": False,
+#     "was_tippy": True,
+#     "can_cross_barge": True,
+#     "driver_field_awareness": 2.3306,
+#     "driver_agility": 3.1557,
+#     "driver_ability": 4.357,
+#     "test_driver_ability": 3.6967,
+#     "unadjusted_field_awareness": 2.8595,
+#     "unadjusted_agility": 5.1131
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+# Stores fields that will be added to database but do not require calculations
+data:
+  team_number:
+    type: str
+  can_cross_barge:
+    type: bool
+
+--counts:
+  matches_died: died
+  matches_tippy: was_tippy
+
+# Calculations that will be averaged to make up averaged_calculations
+component_calculations:
+  driver_field_awareness:
+    type: float
+    requires: [subj_team.unadjusted_field_awareness]
+  driver_agility:
+    type: float
+    requires: [subj_team.unadjusted_agility]
+
+# Calculations made by averaging values of component_calculations
+averaged_calculations:
+  driver_ability:
+    type: float
+    requires: [subj_team.driver_field_awareness, subj_team.driver_agility]
+    weights: [0.47, 0.53]
+  defensive_driver_ability:
+    type: float
+    requires: [subj_team.driver_field_awareness, subj_team.driver_agility]
+    weights: [0.9, 0.1]
+  proxy_driver_ability:
+    type: float
+    requires: [subj_team.driver_field_awareness, subj_team.driver_agility]
+    weights: [0.75, 0.25]
+  test_driver_ability:
+    type: float
+    requires: [subj_team.driver_field_awareness, subj_team.driver_agility]
+    weights: [0.5, 0.5]
+
+# Values of component_calculations before adjusting for teammate scores
+unadjusted_calculations:
+  unadjusted_field_awareness:
+    type: float
+    requires: [subj_tim.field_awareness_score]
+  unadjusted_agility:
+    type: float
+    requires: [subj_tim.agility_score]
+  avg_time_left_to_climb:
+    type: float
+    requires: [subj_tim.time_left_to_climb]

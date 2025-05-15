@@ -1,0 +1,139 @@
+# Used for calculating auto paths data in server
+#
+# Example: 
+# 
+# {
+#     "team_number": "7549",
+#     "exact_match": [
+#         "start_position",
+#         "intake_position_1",
+#         "intake_position_2",
+#         "intake_position_3",
+#         "intake_position_4",
+#         "intake_position_5",
+#         "intake_position_6",
+#         "intake_position_7",
+#         "intake_position_8",
+#         "score_1",
+#         "score_2",
+#         "score_3",
+#         "score_4",
+#         "score_5",
+#         "score_6",
+#         "score_7",
+#         "score_8",
+#         "score_9",
+#         "leave",
+#         "has_preload"
+#     ],
+#     "score_1_successes": 5,
+#     "score_2_successes": 7,
+#     "score_3_successes": 9,
+#     "score_4_successes": 5,
+#     "score_5_successes": 9,
+#     "score_6_successes": 1,
+#     "score_7_successes": 8,
+#     "score_8_successes": 6,
+#     "score_9_successes": 3
+# }
+# 
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 2
+
+# Data that doesn't fit into other categorical calculations
+data:
+  team_number:
+    type: str
+  timeline:
+    type: str
+
+--path_groups:
+  # Values used to group paths toghether, these must be exactly the same across paths
+  exact_match:
+    - start_position
+    - intake_position_1
+    - intake_position_2
+    - intake_position_3
+    - intake_position_4
+    - intake_position_5
+    - intake_position_6
+    - intake_position_7
+    - intake_position_8
+    - intake_position_9
+    - intake_position_10
+    - intake_position_11
+    - intake_position_12
+    - score_1
+    - score_2
+    - score_3
+    - score_4
+    - score_5
+    - score_6
+    - score_7
+    - score_8
+    - score_9
+    - score_10
+    - score_11
+    - score_12
+    - score_13
+    - leave
+    - has_preload
+
+# 1 is added each time all the datapoints are in the possible list of values
+path_increment:
+  score_1_successes:
+    score_1: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+
+  score_2_successes: 
+    score_2: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+    
+  score_3_successes:
+    score_3: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_4_successes:
+    score_4: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_5_successes:
+    score_5: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_6_successes:
+    score_6: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+
+  score_7_successes:
+    score_7: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']    
+    type: int
+  
+  score_8_successes:
+    score_8: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+
+  score_9_successes:
+    score_9: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_10_successes:
+    score_10: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_11_successes:
+    score_11: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_12_successes:
+    score_12: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int
+  
+  score_13_successes:
+    score_13: ['drop_algae', 'drop_coral', 'net', 'processor', 'reef_F1_L1', 'reef_F1_L2', 'reef_F1_L3', 'reef_F1_L4', 'reef_F2_L1', 'reef_F2_L2', 'reef_F2_L3', 'reef_F2_L4', 'reef_F3_L1', 'reef_F3_L2', 'reef_F3_L3', 'reef_F3_L4', 'reef_F4_L1', 'reef_F4_L2', 'reef_F4_L3', 'reef_F4_L4', 'reef_F5_L1', 'reef_F5_L2', 'reef_F5_L3', 'reef_F5_L4', 'reef_F6_L1', 'reef_F6_L2', 'reef_F6_L3', 'reef_F6_L4']
+    type: int

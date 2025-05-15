@@ -1,0 +1,99 @@
+# Holds the variables needed to calculate match predictions
+
+# TODO: add example predicted_aim dict here
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 1
+
+# Fields used to calculate win chance
+--win_chance:
+  auto_avg_coral_L1:
+    sd: auto_sd_coral_L1
+    weight: 3
+  auto_avg_coral_L2:
+    sd: auto_sd_coral_L2
+    weight: 4
+  auto_avg_coral_L3:
+    sd: auto_sd_coral_L3
+    weight: 6
+  auto_avg_coral_L4:
+    sd: auto_sd_coral_L4
+    weight: 7
+  auto_avg_net:
+    sd: auto_sd_net
+    weight: 4
+  auto_avg_processor:
+    sd: auto_sd_processor
+    weight: 2.68 # assume HP scores in the net 83% of the time
+  tele_avg_coral_L1:
+    sd: tele_sd_coral_L1
+    weight: 2
+  tele_avg_coral_L2:
+    sd: tele_sd_coral_L2
+    weight: 3
+  tele_avg_coral_L3:
+    sd: tele_sd_coral_L3
+    weight: 4
+  tele_avg_coral_L4:
+    sd: tele_sd_coral_L4
+    weight: 5
+  tele_avg_net:
+    sd: tele_sd_net
+    weight: 4
+  tele_avg_processor:
+    sd: tele_sd_processor
+    weight: 2.68 # assume HP scores in the net 83% of the time
+  endgame_avg_total_points:
+    sd: endgame_sd_total_points
+    weight: 1
+
+# Stores fields that will be added to database but do not require calculations
+data:
+  match_number:
+    type: int
+  team_numbers: 
+    type: list 
+  alliance_color_is_red:
+    type: bool
+  # Whether or not actual TBA data has been pulled to replace the predicted data
+  has_tba_data:
+    type: bool
+  has_tim_data:
+    type: bool
+  full_tim_data:
+    type: bool
+  actual_score:
+    type: int
+  # Charge RP
+  actual_barge_rp:
+    type: float
+  # Link RP
+  actual_coral_rp:
+    type: float
+  actual_auto_rp:
+    type: float
+  won_match:
+    type: bool
+
+# Information on predicted values that will be performed
+predicted_values:
+  predicted_score:
+    type: float
+    requires: [obj_team, tba_team]
+  # TODO: find RPs when TBA updates
+  predicted_barge_rp:
+    type: float
+    requires: [obj_team]
+  predicted_coral_rp:
+    type: float
+    requires: [obj_team]
+  predicted_auto_rp:
+    type: float
+    requires: [obj_team]
+  win_chance:
+    type: float
+    requires: [obj_team]

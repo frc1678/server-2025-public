@@ -1,0 +1,63 @@
+# Used for calculating pick ability
+#
+# Example:
+#
+# {
+#     "team_number": "9999",
+#     "first_pickability": 0.7095,
+#     "second_pickability": 5.4647,
+# }
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 3
+
+data:
+  team_number:
+    type: str
+calculations:
+  first_pickability:
+    type: float
+    auto_avg_coral_L1: 4.5
+    auto_avg_coral_L2: 4.5
+    auto_avg_coral_L3: 4.5
+    auto_avg_coral_L4: 4.5
+    auto_avg_net: 4
+    auto_avg_processor: 2
+    tele_avg_coral_L1: 4.5
+    tele_avg_coral_L2: 4.5
+    tele_avg_coral_L3: 4.5
+    tele_avg_coral_L4: 4.5
+    tele_avg_net: 4
+    tele_avg_processor: 2 # assume HP always scores in the net
+    cage_percent_success_shallow: 6
+    cage_percent_success_deep: 12
+  
+  lfm_first_pickability:
+    type: float
+    lfm_auto_avg_coral_L1: 4.5
+    lfm_auto_avg_coral_L2: 4.5
+    lfm_auto_avg_coral_L3: 4.5
+    lfm_auto_avg_coral_L4: 4.5
+    lfm_auto_avg_net: 4
+    lfm_auto_avg_processor: 2 # assume HP always scores in the net
+    lfm_tele_avg_coral_L1: 4.5
+    lfm_tele_avg_coral_L2: 4.5
+    lfm_tele_avg_coral_L3: 4.5
+    lfm_tele_avg_coral_L4: 4.5
+    lfm_tele_avg_net: 4
+    lfm_tele_avg_processor: 2 # assume HP always scores in the net
+    lfm_cage_percent_success_shallow: 6
+    lfm_cage_percent_success_deep: 12
+  
+  defensive_second_pickability:
+    type: float
+    electrical_robustness: 6.67 
+    mechanical_robustness: 4.44 
+    tele_avg_incap: -0.8 
+    driver_agility: 16.67
+    driver_field_awareness: 4 

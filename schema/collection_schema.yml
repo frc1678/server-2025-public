@@ -1,0 +1,217 @@
+# Holds information about Collections
+#
+# Example:
+#
+# {'calc_obj_team_schema.yml',
+# 'calc_obj_tim_schema.yml',
+# 'calc_pickability_schema.yml',
+# 'calc_predicted_aim_schema.yml',
+# 'calc_predicted_team_schema.yml',
+# 'calc_subj_team_schema.yml',
+# 'calc_tba_team_schema.yml',
+# 'calc_tba_tim_schema.yml',
+# 'match_collection_qr_schema.yml',
+# 'obj_pit_collection_schema.yml'}
+#
+
+
+# Contains information about this schema file
+schema_file:
+  # Version of schema file
+  # Incremented every merged schema change
+  version: 11
+
+collections:
+  # Each key is a collection within a competition database
+  # schema is the collection's associated schema file
+  # indexes are what fields will have indexes added to them within the collection
+  raw_obj_pit:
+    schema: 'obj_pit_collection_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  raw_qr:
+    schema: null
+    indexes:
+      - fields: ['data']
+        types:
+          data: str
+        unique: True
+  unconsolidated_obj_tim:
+    schema: 'calc_obj_tim_schema.yml'
+    indexes:
+      - fields: ['team_number', 'match_number']
+        types:
+          team_number: str
+          match_number: int
+        unique: False
+  obj_tim: 
+    schema: 'calc_obj_tim_schema.yml'
+    indexes:
+      - fields: ['team_number', 'match_number']
+        types:
+          team_number: str
+          match_number: int
+        unique: True
+  obj_team:
+    schema: 'calc_obj_team_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  predicted_elims:
+    schema: null
+    indexes:
+      - fields: ['match_number']
+        types:
+          match_number: int
+        unique: True
+  subj_tim:
+    schema: null
+    indexes:
+      - fields: ['team_number', 'match_number']
+        types:
+          team_number: str
+          match_number: int
+        unique: True
+  subj_team:
+    schema: 'calc_subj_team_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  tba_tim:
+    schema: 'calc_tba_tim_schema.yml'
+    indexes:
+      - fields: ['team_number', 'match_number']
+        types:
+          team_number: str
+          match_number: int
+        unique: True
+  tba_team:
+    schema: 'calc_tba_team_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  unconsolidated_totals:
+    schema: null
+    indexes:
+      - fields: ['team_number', 'match_number', 'scout_name']
+        types:
+          team_number: str
+          match_number: int
+          scout_name: str
+        unique: True
+  predicted_aim:
+    schema: 'calc_predicted_aim_schema.yml'
+    indexes:
+      - fields: ['match_number', 'alliance_color_is_red']
+        types:
+          match_number: str
+          alliance_color_is_red: bool
+        unique: True
+  predicted_alliances:
+    schema: null
+    indexes:
+      - fields: ['alliance_num']
+        types:
+          alliance_num: int
+        unique: True
+  predicted_team:
+    schema: 'calc_predicted_team_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  pickability:
+    schema: 'calc_pickability_schema.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  sim_precision:
+    schema: 'calc_sim_precision_schema.yml'
+    indexes:
+      - fields: ['match_number', 'scout_name', 'team_number']
+        types:
+          team_number: str
+          match_number: int
+          scout_name: str
+        unique: True
+  scout_precision:
+    schema: 'calc_scout_precision_schema.yml'
+    indexes:
+    - fields: ['scout_name']
+      types:
+        scout_name: str
+      unique: True
+  auto_pim:
+    schema: 'calc_auto_pim.yml'
+    indexes:
+    - fields: ['team_number', 'match_number']
+      types:
+        team_number: str
+        match_number: int
+      unique: True
+  auto_paths:
+    schema: 'calc_auto_paths.yml'
+    indexes:
+    - fields: ['team_number', 'path_number']
+      types:
+        team_number: str
+        path_number: int
+      unique: True
+  unconsolidated_ss_team:
+    schema: null
+    indexes:
+      - fields: ['team_number', 'username']
+        types:
+          team_number: str
+          username: str
+        unique: True
+  ss_team:
+    schema: 'calc_ss_team.yml'
+    indexes:
+      - fields: ['team_number']
+        types:
+          team_number: str
+        unique: True
+  ss_tim:
+    schema: 'calc_ss_tim.yml' 
+    indexes:
+      - fields: ['team_number', 'match_number']
+        types:
+          team_number: str
+          match_number: int
+        unique: True
+  data_accuracy:
+    schema: 'data_accuracy.yml'
+    indexes:
+    - fields: ['match_number', 'alliance_color']
+      types:
+        match_number: int
+        alliance_color: str
+      unique: True
+  scout_disagreements:
+    schema: 'scout_disagreements.yml'
+    indexes:
+    - fields: ['match_number', 'team_number']
+      types:
+        team_number: str
+        match_number: int
+      unique: True
+  flagged_data:
+    schema: 'data_flagging.yml'
+    indexes:
+    - fields: ['match_number']
+      types:
+        match_number: int
+      unique: True
