@@ -1,7 +1,7 @@
 # 1678 Server
 *2025 Public Version*
 
-This repository contains the code for Team 1678's data-processing Server. For an in-depth explanation of our scouting system, please see our [2025 Whitepaper]().
+This repository contains the code for Team 1678's data-processing Server. For an in-depth explanation of our scouting system, please see our [2025 Whitepaper](https://www.citruscircuits.org/uploads/6/9/3/4/6934550/whitepaper_2025_-_final.pdf).
 
 ___
 
